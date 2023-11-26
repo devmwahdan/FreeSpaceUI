@@ -1,4 +1,4 @@
- 
+
      <div class="header">
         <div class="logo">Free<span>Space</span></div>
         <form  method="post">
@@ -12,9 +12,10 @@
                     <input type="password" name="in-pass" id="in-password" class="input-text-field">
                     <div class="forgotten-acc">Forgotten account</div>
                 </div>
-                <div class="login-button">
-                    <input type="submit" value="Log in" class="sign-in login">
-                </div>
+              <div class="login-button">
+                <input type="submit" value="Log in" class="sign-in login" (click)="login()">
+              </div>
+
             </div>
         </form>
     </div>
@@ -40,7 +41,7 @@
                     <div class="sign-up-birthday">
                         <div class="bday">Birthday</div>
                         <div class="form-birthday">
-                           
+
                             <div class="input-group date">
                                 <input type="date" class="form-control"/>
                               </div>
@@ -61,6 +62,6 @@
             </form>
         </div>
     </div>
- 
- 
- 
+
+
+

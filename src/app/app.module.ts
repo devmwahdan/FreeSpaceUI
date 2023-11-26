@@ -11,6 +11,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { MangePostComponent } from './mange-post/mange-post.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { LoginComponent } from './login/login.component';
+import { SettingsMenuComponent } from './settings-menu/settings-menu.component';
+import { AccountInformationComponent } from './settings-menu/account-information/account-information.component';
+import { ChangePasswordComponent } from './settings-menu/change-password/change-password.component';
+import { ChangeProfileComponent } from './settings-menu/change-profile/change-profile.component';
+import { ChangeBasicInfoComponent } from './settings-menu/change-basic-info/change-basic-info.component';
+import { NotificationSettingComponent } from './settings-menu/notification-setting/notification-setting.component';
 
 
 @NgModule({
@@ -23,7 +29,13 @@ import { LoginComponent } from './login/login.component';
     FriendsListComponent,
     MangePostComponent,
     PostListComponent,
-    LoginComponent
+    LoginComponent,
+    SettingsMenuComponent,
+    AccountInformationComponent,
+    ChangePasswordComponent,
+    ChangeProfileComponent,
+    ChangeBasicInfoComponent,
+    NotificationSettingComponent,
   ],
   imports: [
     BrowserModule,

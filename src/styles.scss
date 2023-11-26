@@ -100,18 +100,18 @@ input:-webkit-autofill:active {
 }
 
 .gender-wrap {
-    
+
     display: flex;
     flex-direction: row;
     margin: 10px 0;
     gap: 8px;
-  
-    
+
+
 }
 .gender{
     margin-top: 10px;
-   
-    
+
+
 }
 
 .term {
@@ -213,7 +213,7 @@ nav{
 .nav-left,.nav-right{
     display: flex;
     align-items: center;
-   
+
 }
 .nav-left ul li{
     list-style: none;
@@ -222,7 +222,7 @@ nav{
 .nav-left ul li img{
     margin: 0 40px;
     width: 28px;
-    
+
 }
 .nav-user-icon{
     margin-left: 30px;
@@ -284,7 +284,7 @@ padding: 20px;
 border-radius: 4px;
 color: var(--text-color);
 
-    
+
 }
 .main-content{
     flex-basis: 47%;
@@ -331,18 +331,18 @@ margin-right: 15px;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 18px;
-    
+
 }
 .right-sidebar h4{
     font-weight: 600;
     font-size: 18px;
-   
+
 }
 .right-sidebar h4.title{
    margin-bottom: 10px;
    padding-bottom:10px ;
   display:flex;
-   
+
 }
 .sidebar-title a{
     text-decoration: none;
@@ -501,7 +501,7 @@ margin-right: 4px;
 .post-row{
   display: flex;
   align-items:center ;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 .activity-icons div img{
 width: 18px;
@@ -607,14 +607,14 @@ color: #626262;
 }
 .event-container{
  padding-top:30px ;
-  display:flex;  
+  display:flex;
   margin: 0 auto;
   max-width: 750px;
   column-gap: 20px;
   padding: 0 30px;
   width: 100%;
-   
- 
+
+
 }
 .card{
 background-color:var(--bg-color);
@@ -645,7 +645,7 @@ color:#176B87;
     margin-bottom: 10px;
     font-size: 10px;
     color: #5a5a5a;
-    
+
 }
 .event-btn{
 background: #9BBEC8;
@@ -742,7 +742,7 @@ font-weight: 900;
     height: 90vh;
     box-shadow: 5px 5px 20px #164863;
     overflow: scroll;
-    margin:inherit;  
+    margin:inherit;
     background: #164863;
 }
 .friend-container-header .heading{
@@ -779,7 +779,7 @@ padding-right:0 ;
 }
 .profile{
     padding-top: 250px;
-    
+
 }
 
 .profile h2{
@@ -789,12 +789,12 @@ color: #626262;
 }
 
 .sett-left{
-     
+
     flex-basis: 25%;
     position: sticky;
     top:70px;
     align-self: flex-start;
-    
+
 }
 .impset-links a {
     text-decoration: none;
@@ -817,7 +817,7 @@ color: #626262;
   margin-left:80px ;
   width: 100%;
    color: var(--text-color);
-   
+
   }
  .cardStyle {
     width: 500px;
@@ -899,7 +899,7 @@ button[disabled] {
         width: 450px;
         height: 50vh;
         box-shadow: 5px 5px 20px #164863;
-        margin:auto;  
+        margin:auto;
         background: #164863;
     }
 
@@ -934,7 +934,7 @@ button[disabled] {
             width: 80px;
             border-radius: 55%;
             margin-right: 15px;
-        
+
         }
         .UserProfile-info span{
             color: #0C44A4;
@@ -945,7 +945,7 @@ button[disabled] {
             text-decoration: none;
         }
 
-   
+
    .noticontainer{
     display: flex;
     justify-content: center;
@@ -1017,8 +1017,8 @@ gap: 1rem;
 
 .profile-container{
     padding:20px 15%;
-    background-color: var(--body-color); 
-    
+    background-color: var(--body-color);
+
 }
 .cover-img{
     width: 97.2%;
@@ -1035,13 +1035,13 @@ gap: 1rem;
     -moz-border-radius: 4px ;
     -ms-border-radius: 4px ;
     -o-border-radius: 4px ;
-    display:flex; 
+    display:flex;
     align-items: flex-start;
     justify-content: space-between;
     width: 97.2%;
-    
+
 }
- 
+
 .pd-row {
 display: flex;
 align-items: flex-start;
@@ -1059,7 +1059,7 @@ align-items: flex-start;
 }
 .pd-row div p {
     font-size: 13px;
-   
+
 }
 .pd-row div img{
  width: 25px;
@@ -1077,7 +1077,7 @@ align-items: flex-start;
     color: black;
     cursor: pointer;
     border-radius: 3px;
-    
+
 }
 
 .pd-right button img {
@@ -1225,7 +1225,7 @@ margin-right: 30px ;
 
 }
 .post-profile-icon{
- display: flex;   
+ display: flex;
 align-items: center;
 }
 .post-profile-icon img{
@@ -1277,12 +1277,12 @@ align-items: center;
      margin-bottom: 20px;
     margin-top: 11px;
     border-radius:4px ;
-   
+
 }
 
 .picture{
     width: 100%;
-   
+
 }
 
 .profile-intro h3{
@@ -1323,7 +1323,7 @@ align-items: center;
     display: flex;
     justify-content: space-between;
     color: var(--text-color);
-  
+
 }
 .title-box a{
     text-decoration: none;
@@ -1338,7 +1338,7 @@ align-items: center;
     grid-gap: 10px;
     margin-top:-15px ;
     color: var(--text-color);
-    
+
 }
 
 .Photo-box div img {
@@ -1346,7 +1346,7 @@ align-items: center;
     cursor: pointer;
     padding-bottom: 20px;
 }
- 
+
 .Friends-box{
     display:grid;
     grid-template-columns: repeat(3,auto);
@@ -1390,7 +1390,7 @@ align-items: center;
 .post-input-container {
     MARGIN-RIGHT: 56PX;
     padding-left: 0;
-     
+
 }
 .post-container {
     width: 66%;}
@@ -1412,23 +1412,24 @@ align-items: center;
     margin-right: 50px;
     line-height: 60px;
     margin-left: 20px;
+  margin-bottom: 20px;
 }
 .icon span{
     background-color:#acd2e6 ;
-    padding: 2px;
+   /* padding: 2px*/;
     border-radius: 70%;
     color: #000;
     vertical-align:top;
     margin-left: -15px;
    font-size: 10px;
    font-weight: 600;
- 
+
 }
 .icon img{
     display: inline-block;
     width: 25px;
     margin-top: 20px;
-    
+
 }
 .icon:hover{
     opacity: .7;
@@ -1444,7 +1445,7 @@ align-items: center;
     top:100%;
     left: 5%;
     max-height: 0;
-    
+
 }
 .notifi-box h2{
     font-size: 14px;
@@ -1492,4 +1493,15 @@ align-items: center;
 @import 'bootstrap/scss/bootstrap';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto,
+  "Helvetica Neue",
+  sans-serif;
+
+  font-family: roboto, sans-serif;
+  background:var(--body-color);
+  font-size: 16px;
+  transition:background 0.3s;
+
+}
