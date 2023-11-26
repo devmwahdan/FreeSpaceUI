@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { LeftSideMenuComponent } from './left-side-menu/left-side-menu.component';
 import { RightSideMenuComponent } from './right-side-menu/right-side-menu.component';
@@ -41,19 +41,23 @@ import { EventCards } from './event/event-card/event-card.component';
     AccountInformationComponent,
     ChangeBasicInfoComponent,
     ChangeBasicInfoComponent,
+    ChangePasswordComponent,
     NotificationSettingComponent,
     LeftSideFriendList,
     ProfilePage,
-ProfileInfo,
-ProfileDetails,
-Event,
-RightSide,
-LeftSide,
-EventCards
+    ProfileInfo,
+    ProfileDetails,
+    Event,
+    RightSide,
+    LeftSide,
+    EventCards,
+    
   
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
   ],
   providers: [],
