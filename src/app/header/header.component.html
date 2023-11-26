@@ -1,0 +1,96 @@
+<nav>
+    <div class="nav-left">
+        <div class="logo">Free<span>Space   </span></div>
+       
+        <div class="icon" >
+            <img  src="assets/image/icons/icons8-notification-50.png"alt="notification-icon"><span>17</span>
+        </div>
+        <div class="notifi-box" id="box">
+            <h2>Notification <span>17</span></h2>
+            <div class="notifi-item">
+                <img src="assets/image/profile/member2.jpg" alt="">
+                <div class="text">
+                    <h4>Abdulrahman Alshami </h4>
+                    <p>Abdulrahman Alshami likes your post</p>
+                </div>
+            </div>
+            <div class="notifi-item">
+                <img src="assets/image/profile/member5.jpg" alt="">
+                <div class="text">
+                    <h4>Rahaf Abu-Samrah </h4>
+                    <p>Rahaf Abu-Samrah Aadded you as a friend!</p>
+                </div>
+            </div>
+            <div class="notifi-item">
+                <img src="assets/image/profile/member7.jpg" alt="">
+                <div class="text">
+                    <h4>Rahaf Kisbeh </h4>
+                    <p>Rahaf Kisbeh likes your comment</p>
+                </div>
+            </div>
+            <div class="notifi-item">
+                <img src="assets/image/profile/member6.jpg" alt="">
+                <div class="text">
+                    <h4>Samer Wahdan</h4>
+                    <p>Samer Wahdan addedd a new post "Gaza "</p>
+                </div> 
+            </div>
+            <div class="notifi-item">
+                <img src="assets/image/profile/member8.jpg" alt="">
+                <div class="text">
+                    <h4>Mohammad Wahdan </h4>
+                    <p>Mohammad Wahdan Share your post</p>
+                </div>
+            </div>
+        </div>
+        <div >
+            <a routerLink="/home"><img src="assets/image/icons/home.png" alt="Home"></a>
+        </div>
+        </div>
+
+    
+            
+       
+    
+    <div class="nav-right">
+        <div class="search-box">
+            <img src="assets/image/icons/search.png">
+            <input type="text"placeholder="Search">
+        </div>
+        <button type="button" class="nav-user-icon online" (click)="settingsMenuToggle()">
+            <img src="assets/image/profile/profile.jpg">
+        </button>
+    </div>
+    <div class=" " [ngClass]="hideActionMenu  ? 'settings-menu settings-menu-height' : 'settings-menu'">
+        <div id="dark-btn">
+            <span></span>
+        </div>
+        <div class="setting-menu-inner">
+            <div class="user-profile">
+                <img src="assets/image/profile/profile.jpg" alt="">
+            <div>
+            <p>Rand Wahdan</p> 
+            <a href="userProfile.html">See your profile</a>
+        </div>
+            </div>
+            <hr>
+            <div class="user-profile">
+                <img src="assets/image/icons/feedback.png" alt="">
+            <div>
+            <p>Give Feedback</p> 
+            <a href="feedback.html">Help us to improve our website</a>
+        </div>
+            </div>
+            <hr>
+            <div class="settings-links">
+                <img src="assets/image/icons/setting.png" class="settings-icon">
+                <a href="setting.html">Settings <img src="assets/image/icons/arrow.png"width="10px"></a>
+            </div>
+            <div class="settings-links">
+                <img src="assets/image/icons/logout.png" class="settings-icon">
+                <a href="#">Logout <img src="assets/image/icons/arrow.png"width="10px"></a>
+            </div>
+        </div>
+       
+    </div>
+   </nav> 
