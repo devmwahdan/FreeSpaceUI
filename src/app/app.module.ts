@@ -21,7 +21,10 @@ import { LeftSideFriendList } from './friend-list/left-side-bar/left-side-bar.co
 import { ProfilePage } from './profile/profile-page.component';
 import { ProfileInfo } from './profile/profileInfo/profileInfo.component';
 import { ProfileDetails } from './profile/profile-details/profile-details.component';
-
+import { Event } from './event/event.component';
+import { RightSide } from './event/right-side/right-side.component';
+import { LeftSide } from './event/left-side/left-side.component';
+import { EventCards } from './event/event-card/event-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +46,10 @@ import { ProfileDetails } from './profile/profile-details/profile-details.compon
     ProfilePage,
 ProfileInfo,
 ProfileDetails,
+Event,
+RightSide,
+LeftSide,
+EventCards
   
   ],
   imports: [

@@ -11,6 +11,7 @@ import {ChangePasswordComponent} from "./settings-menu/change-password/change-pa
 import {ChangeProfileComponent} from "./settings-menu/change-profile/change-profile.component";
 import {NotificationSettingComponent} from "./settings-menu/notification-setting/notification-setting.component";
 import { ProfilePage } from './profile/profile-page.component';
+import { Event } from './event/event.component';
 
 const routes: Routes = [
 
@@ -40,6 +41,11 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'ProfilePage', component:ProfilePage,
+   
+  },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: 'Event', component:Event,
    
   }
 
