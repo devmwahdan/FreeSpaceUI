@@ -10,6 +10,7 @@ import {ChangeBasicInfoComponent} from "./settings-menu/change-basic-info/change
 import {ChangePasswordComponent} from "./settings-menu/change-password/change-password.component";
 import {ChangeProfileComponent} from "./settings-menu/change-profile/change-profile.component";
 import {NotificationSettingComponent} from "./settings-menu/notification-setting/notification-setting.component";
+import { ProfilePage } from './profile/profile-page.component';
 
 const routes: Routes = [
 
@@ -30,6 +31,16 @@ const routes: Routes = [
       {path: 'friends', component: FriendsListComponent},
       {path: 'manage', component: MangePostComponent},
     ]
+  },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: 'friends', component:FriendsListComponent,
+   
+  },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: 'ProfilePage', component:ProfilePage,
+   
   }
 
 
