@@ -1,6 +1,6 @@
 <div class="mainDiv">
   <div class="cardStyle" id="privacy">
-    <form action="/upload" method="post" enctype="multipart/form-data">
+    <form [formGroup]="ChangePFP" (ngSubmit)="UpdatePFP()"  enctype="multipart/form-data">
       <h2 class="formTitle">
         Change profile picture
       </h2>
@@ -8,7 +8,7 @@
       <div class="UserProfile-info">
         <img src="assets/image/profile/member1.jpg" alt="user">
       </div>
-      <input type="file" name="fileUploadPic" id="fileUploadPic">
+      <input type="file" name="fileUploadPic" formControlName="fileUploadPic">
       <button type="submit" class="btn">Upload</button>
       <div class="buttonWrapper">
       </div>

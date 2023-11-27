@@ -1,25 +1,23 @@
 <div class="mainDiv" id="divAccount">
   <div class="cardStyle">
-    <form #userForm="ngForm" (ngSubmit)="onSubmit()" name="AccountForm" novalidate>
-{{userForm.value|json}}
+    <form [formGroup]="AccountForm" (ngSubmit)="Save()" name="AccountForm" novalidate>
+
       <h2 class="formTitle">
         Account Information
       </h2>
 
       <div class="inputDiv">
         <label class="inputLabel" for="tbEmail">Username:</label>
-        <input type="text"  #name="ngModel" [class.is-invalid]="name.invalid && name.touched" class="form-control" name="Username" ngModel required>
-        <small class="text-danger"[class.d-none]="name.valid||name.untouched">Username is required</small>
+        <input type="text"   class="form-control" formControlName="Username"  required>
       </div>
 
       <div class="inputDiv">
         <label class="inputLabel" for="tbPhon">Phone Number:</label>
-        <input #phone="ngModel" [class.is-invalid]="phone.invalid && phone.touched" type="tel" class="form-control" name="Phone" ngModel pattern="^\d{10}$">
-        <small class="text-danger"[class.d-none]="phone.valid||phone.untouched">Phone number must be 10 digits</small>
+        <input type="tel" class="form-control" formControlName="Phone"  pattern="^\d{10}$">
 
       </div>
       <div class="buttonWrapper">
-        <button [disabled]="userForm.form.invalid"  type="submit" name="AccSaveButton"  class="submitButton pure-button pure-button-primary">
+        <button [disabled]="AccountForm.invalid"  type="submit" name="AccSaveButton"  class="submitButton pure-button pure-button-primary">
           <span>Save Changes</span>
         </button>
       </div>

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AccountInfo } from '../../models/Account-Info.model';
+import { AuthService } from '../../services/auth.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-account-information',
@@ -7,15 +10,25 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrl: './account-information.component.scss'
 })
 export class AccountInformationComponent {
- public AccountForm = new FormGroup({
-    Username: new FormControl(''),
-    PhoneNumber: new FormControl(''),
-  });
-  onSubmit(): void {
-    // Process checkout data here
-    console.log(
-    this.AccountForm.controls.Username.value,
-      this.AccountForm.controls.PhoneNumber.value,
-    );
+  AccountInfo:AccountInfo=new AccountInfo();
+  AccountForm:FormGroup;
+  constructor(private router: Router, private authService: AuthService, private fb: FormBuilder){
+    this.AccountForm = this.fb.group({
+      username:'',
+       phoneNumber: ['', Validators.minLength(10)],
+      
+     });
+  }
+  
+ 
+  Save(){
+    this.AccountInfo.username = "";
+    this.AccountInfo.phoneNumber = "";
+    this.authService.login(this.AccountInfo).subscribe(res => {
+      localStorage.setItem('jwt', res.token);
+      this.router.navigateByUrl('home/manage');
+
+    });
+   
   }
 }

@@ -19,11 +19,31 @@ export class AuthService {
   }*/
 
   login(data: any):  Observable<any> {
-    debugger
+    //debugger
     localStorage.removeItem('jwt');
     return this.httpClient.post('/Auth/Login', data);
   }
   Register(data:any):Observable<any>{
+    //debugger
+    localStorage.removeItem('jwt');
+    return this.httpClient.post('/Auth/Register',data);
+  }
+  Save(data:any):Observable<any>{
+    debugger
+    localStorage.removeItem('jwt');
+    return this.httpClient.post('/Auth/Register',data);
+  }
+  SaveInfo(data:any):Observable<any>{
+    debugger
+    localStorage.removeItem('jwt');
+    return this.httpClient.post('/Auth/Register',data);
+  }
+  UpdatePassword(data:any):Observable<any>{
+    debugger
+    localStorage.removeItem('jwt');
+    return this.httpClient.post('/Auth/Register',data);
+  }
+  UpdatePFP(data:any):Observable<any>{
     debugger
     localStorage.removeItem('jwt');
     return this.httpClient.post('/Auth/Register',data);

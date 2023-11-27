@@ -1,28 +1,31 @@
-import { PasswordValidators } from './change-password.validator';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
+import {Router} from "@angular/router";
+import { AuthService } from '../../services/auth.service';
+import { ChangePasswordModel } from '../../models/Change-password.model';
 @Component({
   selector: 'changePassword',
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.scss']
 })
 export class ChangePasswordComponent {
-  form: FormGroup;
-
-  constructor(fb: FormBuilder) {
-    this.form = fb.group({
-      oldPassword: ['', 
-        Validators.required, 
-        PasswordValidators.validOldPassword
-      ],
-      newPassword: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
-    }, {
-      validator: PasswordValidators.passwordsShouldMatch
+  ChangePassword:FormGroup;
+  ChangePasswordModel:ChangePasswordModel=new ChangePasswordModel();
+  constructor( private router: Router, private authService: AuthService, private fb: FormBuilder){
+    this.ChangePassword = this.fb.group({
+      oldPassword: '',
+      newPassword:['', [Validators.required],Validators.minLength(8)],
+      confirmPassword:['', [Validators.required],Validators.minLength(8)],
     });
   }
-  get oldPassword() { return this.form.get('oldPassword'); }
-  get newPassword() { return this.form.get('newPassword'); }
-  get confirmPassword() { return this.form.get('confirmPassword'); }
+  UpdatePassword(){
+    this.ChangePasswordModel.oldPassword = "P@ssw0rd";
+    this.ChangePasswordModel.newPassword = "P@ssw0rd";
+    this.ChangePasswordModel.confirmPassword = "P@ssw0rd";
+    this.authService.login(this.ChangePasswordModel).subscribe(res => {
+      localStorage.setItem('jwt', res.token);
+      this.router.navigateByUrl('login');
+    });
+  }
+
 }

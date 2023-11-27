@@ -41,8 +41,6 @@ import {AppHttpInterceptor} from "./services/app-interceptor.service";
     LeftSideMenuComponent,
     SettingsMenuComponent,
     AccountInformationComponent,
-    ChangeBasicInfoComponent,
-    ChangeBasicInfoComponent,
     ChangePasswordComponent,
     NotificationSettingComponent,
     LeftSideFriendList,
@@ -53,7 +51,9 @@ import {AppHttpInterceptor} from "./services/app-interceptor.service";
     RightSide,
     LeftSide,
     EventCards,
-    LoginComponent
+    LoginComponent,
+    ChangeBasicInfoComponent,
+    ChangeProfileComponent
 
   ],
   imports: [
