@@ -25,6 +25,8 @@ import { Event } from './event/event.component';
 import { RightSide } from './event/right-side/right-side.component';
 import { LeftSide } from './event/left-side/left-side.component';
 import { EventCards } from './event/event-card/event-card.component';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
+import {AppHttpInterceptor} from "./services/app-interceptor.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,16 +53,23 @@ import { EventCards } from './event/event-card/event-card.component';
     RightSide,
     LeftSide,
     EventCards,
-    
-  
+    LoginComponent
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppHttpInterceptor,
+      multi: true,}
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
