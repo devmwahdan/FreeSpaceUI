@@ -7,7 +7,6 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrl: './account-information.component.scss'
 })
 export class AccountInformationComponent {
- 
  public AccountForm = new FormGroup({
     Username: new FormControl(''),
     PhoneNumber: new FormControl(''),
