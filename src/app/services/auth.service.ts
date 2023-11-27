@@ -23,4 +23,9 @@ export class AuthService {
     localStorage.removeItem('jwt');
     return this.httpClient.post('/Auth/Login', data);
   }
+  Register(data:any):Observable<any>{
+    debugger
+    localStorage.removeItem('jwt');
+    return this.httpClient.post('/Auth/Register',data);
+  }
 }

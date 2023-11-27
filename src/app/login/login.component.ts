@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {LoginModel} from "../models/login-model";
 import {AuthService} from "../services/auth.service";
+import { RegisterModel } from '../models/Register-model';
+import { FormControl, FormGroup } from '@angular/forms';
 
  @Component({
   selector: 'app-login',
@@ -10,8 +12,9 @@ import {AuthService} from "../services/auth.service";
 
 })
 export class LoginComponent {
+  registerationForm=new FormGroup({});
  loginModel:LoginModel=new LoginModel();
-
+ RegisterModel:RegisterModel=new RegisterModel();
   constructor( private router: Router, private authService: AuthService){
 
   }
@@ -24,5 +27,17 @@ export class LoginComponent {
        this.router.navigateByUrl('home/manage');
 
      });
+    
+   }
+   Register(){
+    this.RegisterModel.firstName="";
+    this.RegisterModel.lastName="";
+    this.RegisterModel.email="";
+    this.RegisterModel.dateOfBirth="";
+    this.RegisterModel.gender="";
+    this.authService.Register(this.RegisterModel).subscribe(res=>{
+      localStorage.setItem('jwt',res.token);
+      this.router.navigateByUrl('/login');
+    })
    }
 }
