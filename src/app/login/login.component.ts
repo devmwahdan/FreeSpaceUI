@@ -30,11 +30,11 @@ export class LoginComponent {
     
    }
    Register(){
-    this.RegisterModel.firstName="";
-    this.RegisterModel.lastName="";
-    this.RegisterModel.email="";
-    this.RegisterModel.dateOfBirth="";
-    this.RegisterModel.gender="";
+    this.RegisterModel.FirstName="";
+    this.RegisterModel.LastName="";
+    this.RegisterModel.Email="";
+    this.RegisterModel.DateOfBirth=new Date;
+    this.RegisterModel.Gender="";
     this.authService.Register(this.RegisterModel).subscribe(res=>{
       localStorage.setItem('jwt',res.token);
       this.router.navigateByUrl('/login');

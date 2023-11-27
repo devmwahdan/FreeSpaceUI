@@ -1,10 +1,10 @@
 export class RegisterModel{
-    firstName:string;
-    lastName!:string;
-    email!:string;
-    password!:string;
-    dateOfBirth!:any;
-    gender!:string;
+    FirstName:string;
+    LastName!:string;
+    Email!:string;
+    Password!:string;
+    DateOfBirth!:Date;
+    Gender!:string;
     
 
 
