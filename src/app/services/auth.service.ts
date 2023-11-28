@@ -47,4 +47,7 @@ export class AuthService {
   Post(data:any):Observable<any>{
     return this.httpClient.post('/Auth/Register',data);
   }
+  EventCreation(data:any):Observable<any>{
+    return this.httpClient.post('/Auth/Register',data);
+  }
 }

@@ -9,11 +9,11 @@
     <h6>Host - Your profile</h6> 
 </div>
     </div>
-    <form class="event-creation" action="">
-        <input type="text" name="event-title" id="event-title" placeholder="Event name"required>
-        <input type="text" name="event-discription" id="event-discription" placeholder="What are the details?"required>
-        <input type="text" name="event-title" id="event-title" placeholder="Place"required>
-        <select style="cursor: pointer;" id="Categories">
+    <form   class="event-creation" [formGroup]="eventForm" (ngSubmit)="EventCreation()">
+        <input type="text" formControlName="title"   name="event-title" id="event-title" placeholder="Event name"required>
+        <input type="text"  formControlName="discription" name="event-discription" id="event-discription" placeholder="What are the details?"required>
+        <input type="text"  formControlName="place"  placeholder="Place"required>
+        <select  formControlName="category" style="cursor: pointer;" id="Categories">
             <option value="">--Please choose event categories--</option>
             <option value="Comedy">Comedy</option>
             <option value="Sport">Sport</option>
@@ -23,16 +23,16 @@
             <option value="Games">Games</option>
           </select>
         <label for="start-date">Start Date?</label>
-        <input type="date" name="start-date" id="start-date" required>
+        <input  formControlName="startDate" type="date" name="start-date" id="start-date" required>
         <label for="event-start-time">Start Time?</label>
-        <input type="time" name="event-start-time" id="event-start-time" required>
+        <input type="time"  formControlName="startTime" name="event-start-time" id="event-start-time" required>
         <label for="end-date">End Date?</label>
-        <input type="date" name="end-date" id="end-date" required>
+        <input type="date" formControlName="endDate" name="end-date" id="end-date" required>
         <label for="event-end-time">End Time?</label>
-        <input type="time" name="event-end-time" id="event-end-time" required>
+        <input type="time"  formControlName="endTime" name="event-end-time" id="event-end-time" required>
         <label for="fileUploadPic">Choose Picture for your event</label>
-        <input type="file" name="fileUploadPic" id="fileUploadPicEvent">
-        <input type="submit" value="Create event" class="create-event" (click)="EventCreation()">
+        <input type="file"  formControlName="file" name="fileUploadPic" id="fileUploadPicEvent">
+        <input type="submit" value="Create event" class="create-event" >
     </form>
 
 </div>
