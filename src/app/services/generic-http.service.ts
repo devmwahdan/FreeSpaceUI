@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import {ApiHelperService} from "./api-helper.service";
 import {Observable} from "rxjs";
+import {HttpParams} from "@angular/common/http";
 
-@Injectable({
-  providedIn: 'root'
-})
+
 export class GenericHttpService<TDto, TFilter>  {
   constructor(
     protected endpoint: string,
@@ -35,7 +34,7 @@ export class GenericHttpService<TDto, TFilter>  {
 
 
   delete(id: number){
-    return this.apiHepler.delete<TDto>(`${this.endpoint}/${id}`, null);
+    return this.apiHepler.delete<TDto>(`${this.endpoint}/${id}`, new HttpParams());
   }
 
 }

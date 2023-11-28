@@ -4,6 +4,9 @@ import {LoginModel} from "../models/login-model";
 import {AuthService} from "../services/auth.service";
 import { RegisterModel } from '../models/Register-model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {ApiHelperService} from "../services/api-helper.service";
+import {PostService} from "../services/post.service";
+import {PostModel} from "../models/post-model";
 
  @Component({
   selector: 'app-login',
@@ -16,7 +19,7 @@ registerationForm: FormGroup;
  loginModel:LoginModel=new LoginModel();
  RegisterModel:RegisterModel=new RegisterModel();
 
-  constructor( private router: Router, private authService: AuthService, private fb: FormBuilder){
+  constructor( private router: Router, private authService: AuthService, private fb: FormBuilder, private postService: PostService){
      // Initialize the form in the constructor
      this.registerationForm = this.fb.group({
       firstname: '',
@@ -50,5 +53,15 @@ registerationForm: FormGroup;
       localStorage.setItem('jwt',res.token);
       this.router.navigateByUrl('/login');
     })
+   }
+
+   createPost(){
+     let model: PostModel  =new PostModel() ;
+     model.content = "test;"
+
+
+     this.postService.create(model).subscribe(async result => {
+
+     });
    }
 }
