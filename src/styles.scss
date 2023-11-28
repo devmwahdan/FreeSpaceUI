@@ -1277,7 +1277,18 @@ align-items: center;
     border-radius:4px ;
 
 }
-
+.postClick{
+    height: 30px;
+    color: white;
+    background-color: #427D9D;
+    box-shadow: inset 0 1px 1px #8EACCD;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 15px;
+    width: 60px;
+    margin-left: 16rem;
+    cursor: pointer;
+}
 .picture{
     width: 100%;
 

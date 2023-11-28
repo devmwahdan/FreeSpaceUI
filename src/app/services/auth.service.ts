@@ -41,4 +41,10 @@ export class AuthService {
   UpdatePFP(data:any):Observable<any>{
     return this.httpClient.post('/Auth/Register',data);
   }
+  SaveNotify(data:any):Observable<any>{
+    return this.httpClient.post('/Auth/Register',data);
+  }
+  Post(data:any):Observable<any>{
+    return this.httpClient.post('/Auth/Register',data);
+  }
 }

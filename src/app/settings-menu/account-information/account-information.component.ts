@@ -24,7 +24,7 @@ export class AccountInformationComponent {
   Save(){
     this.AccountInfo.username = "";
     this.AccountInfo.phoneNumber = "";
-    this.authService.login(this.AccountInfo).subscribe(res => {
+    this.authService.Save(this.AccountInfo).subscribe(res => {
       this.router.navigateByUrl('home/manage');
 
     });

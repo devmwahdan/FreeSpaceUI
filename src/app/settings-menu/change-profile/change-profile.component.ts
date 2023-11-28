@@ -14,12 +14,13 @@ export class ChangeProfileComponent {
   constructor( private router: Router, private authService: AuthService, private fb: FormBuilder){
     this.ChangePFP = this.fb.group({
       fileUploadPic: '',
+      fileUploadCover:''
 
     });
   }
   UpdatePFP(){
     this.ChangePFPModel.file = "";
-    this.authService.login(this.ChangePFPModel).subscribe(res => {
+    this.authService.UpdatePFP(this.ChangePFPModel).subscribe(res => {
       this.router.navigateByUrl('profile');
 
     });

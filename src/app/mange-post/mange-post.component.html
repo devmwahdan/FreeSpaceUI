@@ -1,4 +1,4 @@
-
+<form [formGroup]="postForm" (ngSubmit)="Post()">
     <div class="write-post-container">
         <div class="user-profile">
             <img src="assets/image/profile/profile.jpg" alt="">
@@ -8,13 +8,15 @@
         </div>
 
         <div class="post-input-container">
-            <textarea  rows="3" placeholder="What's on your mind, Rand?"></textarea>
+            <textarea formControlName="content"  rows="3" placeholder="What's on your mind, Rand?" ></textarea>
             <div class="add-post-links">
                 <a href="#"><img src="assets/image/icons/photo.JPG" alt="">Photo</a>
                 <a href="#"><img src="assets/image/icons/video (2).png" alt="">Video</a>
-
+                <input type="submit" value="Post" class="postClick" >
             </div>
         </div>
     </div>
+</form>
+   
     
   <!--  <router-outlet></router-outlet>-->

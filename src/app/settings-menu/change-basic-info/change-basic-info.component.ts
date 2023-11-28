@@ -24,7 +24,7 @@ export class ChangeBasicInfoComponent {
     this.ChangeBasicInfoModel.Bio = "";
     this.ChangeBasicInfoModel.Nickname = "";
     this.authService.SaveInfo(this.ChangeBasicInfoModel).subscribe(res => {
-      this.router.navigateByUrl('home/manage');
+      this.router.navigateByUrl('profile');
 
     });
 
