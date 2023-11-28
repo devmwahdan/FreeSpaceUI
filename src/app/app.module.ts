@@ -14,7 +14,6 @@ import { SettingsMenuComponent } from './settings-menu/settings-menu.component';
 import { AccountInformationComponent } from './settings-menu/account-information/account-information.component';
 import { ChangePasswordComponent } from './settings-menu/change-password/change-password.component';
 import { ChangeProfileComponent } from './settings-menu/change-profile/change-profile.component';
-import { ChangeBasicInfoComponent } from './settings-menu/change-basic-info/change-basic-info.component';
 import { NotificationSettingComponent } from './settings-menu/notification-setting/notification-setting.component';
 import { FriendsListComponent } from './friend-list/friend-list.component';
 import { LeftSideFriendList } from './friend-list/left-side-bar/left-side-bar.component';
@@ -52,7 +51,7 @@ import {AppHttpInterceptor} from "./services/app-interceptor.service";
     LeftSide,
     EventCards,
     LoginComponent,
-    ChangeBasicInfoComponent,
+    
     ChangeProfileComponent
 
   ],

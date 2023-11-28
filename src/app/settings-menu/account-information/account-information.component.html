@@ -1,6 +1,6 @@
 <div class="mainDiv" id="divAccount">
   <div class="cardStyle">
-    <form [formGroup]="AccountForm" (ngSubmit)="Save()" name="AccountForm" novalidate>
+    <form [formGroup]="BasicInfo" (ngSubmit)="SaveInfo()" name="AccountForm" novalidate>
 
       <h2 class="formTitle">
         Account Information
@@ -8,17 +8,26 @@
 
       <div class="inputDiv">
         <label class="inputLabel" for="tbEmail">Username:</label>
-        <input type="text"   class="form-control" formControlName="Username"  required>
+        <input type="text"  class="form-control" formControlName="username"  required>
       </div>
 
       <div class="inputDiv">
         <label class="inputLabel" for="tbPhon">Phone Number:</label>
-        <input type="tel" class="form-control" formControlName="Phone"  pattern="^\d{10}$">
+        <input type="tel" class="form-control" formControlName="phoneNumber"  pattern="^\d{10}$">
 
       </div>
+      <div class="inputDiv">
+        <label class="inputLabel" for="bio">Bio:</label>
+        <textarea formControlName="bio" id="" cols="30" rows="10"></textarea>
+      </div>
+
+      <div class="inputDiv">
+        <label class="inputLabel" for="nickname">Nickname:</label>
+        <input type="text" id="nickname" formControlName="nickname" required>
+      </div>
       <div class="buttonWrapper">
-        <button [disabled]="AccountForm.invalid"  type="submit" name="AccSaveButton"  class="submitButton pure-button pure-button-primary">
-          <span>Save Changes</span>
+        <button  type="submit" name="AccSaveButton"  class="submitButton pure-button pure-button-primary">
+          <span>Save </span>
         </button>
       </div>
 

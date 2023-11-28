@@ -6,7 +6,6 @@ import {LoginComponent} from './login/login.component';
 import {MangePostComponent} from "./mange-post/mange-post.component";
 import {SettingsMenuComponent} from "./settings-menu/settings-menu.component";
 import {AccountInformationComponent} from "./settings-menu/account-information/account-information.component";
-import {ChangeBasicInfoComponent} from "./settings-menu/change-basic-info/change-basic-info.component";
 import {ChangePasswordComponent} from "./settings-menu/change-password/change-password.component";
 import {ChangeProfileComponent} from "./settings-menu/change-profile/change-profile.component";
 import {NotificationSettingComponent} from "./settings-menu/notification-setting/notification-setting.component";
@@ -19,7 +18,6 @@ const routes: Routes = [
   {path: 'setting', component: SettingsMenuComponent,
     children: [
       {path: 'account', component: AccountInformationComponent},
-      {path: 'basicaccount', component: ChangeBasicInfoComponent},
       {path: 'changePassword', component: ChangePasswordComponent},
       {path: 'changeProfile', component: ChangeProfileComponent},
       {path: 'notification', component: NotificationSettingComponent},
