@@ -28,19 +28,17 @@ export class AppHttpInterceptor implements HttpInterceptor {
     headers = headers.append('Accept', 'application/json');
     headers = headers.append('Cache-control', 'no-cache');
     var url = req.url;
-
-    // skip assets call for translate
+debugger
     if (url.startsWith('/assets') == false && url.startsWith('http') == false)
       url = environment.ServiceUrl + url;
 
-    // to Activate Partnership we added this statement "&& !url.endsWith('checkNafathStatus')"  in if below
     if (localStorage.getItem('jwt')) {
       headers = headers.append(
         'Authorization',
         'Bearer ' + localStorage.getItem('jwt')
       );
     }
-    if (localStorage.getItem('jwt_otp')) {
+    if (localStorage.getItem('jwt')) {
       headers = headers.append(
         'Authorization',
         'Bearer ' + localStorage.getItem('jwt')

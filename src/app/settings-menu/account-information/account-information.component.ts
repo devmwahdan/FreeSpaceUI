@@ -16,19 +16,18 @@ export class AccountInformationComponent {
     this.AccountForm = this.fb.group({
       username:'',
        phoneNumber: ['', Validators.minLength(10)],
-      
+
      });
   }
-  
- 
+
+
   Save(){
     this.AccountInfo.username = "";
     this.AccountInfo.phoneNumber = "";
     this.authService.login(this.AccountInfo).subscribe(res => {
-      localStorage.setItem('jwt', res.token);
       this.router.navigateByUrl('home/manage');
 
     });
-   
+
   }
 }

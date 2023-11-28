@@ -30,22 +30,15 @@ export class AuthService {
   }
   Save(data:any):Observable<any>{
     debugger
-    localStorage.removeItem('jwt');
     return this.httpClient.post('/Auth/Register',data);
   }
   SaveInfo(data:any):Observable<any>{
-    debugger
-    localStorage.removeItem('jwt');
     return this.httpClient.post('/Auth/Register',data);
   }
   UpdatePassword(data:any):Observable<any>{
-    debugger
-    localStorage.removeItem('jwt');
     return this.httpClient.post('/Auth/Register',data);
   }
   UpdatePFP(data:any):Observable<any>{
-    debugger
-    localStorage.removeItem('jwt');
     return this.httpClient.post('/Auth/Register',data);
   }
 }

@@ -37,7 +37,7 @@ registerationForm: FormGroup;
        this.router.navigateByUrl('home/manage');
 
      });
-    
+
    }
    Register(){
     var formValue = this.registerationForm.value;

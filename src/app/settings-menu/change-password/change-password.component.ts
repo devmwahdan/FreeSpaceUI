@@ -23,7 +23,6 @@ export class ChangePasswordComponent {
     this.ChangePasswordModel.newPassword = "P@ssw0rd";
     this.ChangePasswordModel.confirmPassword = "P@ssw0rd";
     this.authService.login(this.ChangePasswordModel).subscribe(res => {
-      localStorage.setItem('jwt', res.token);
       this.router.navigateByUrl('login');
     });
   }

@@ -24,7 +24,6 @@ export class ChangeBasicInfoComponent {
     this.ChangeBasicInfoModel.Bio = "";
     this.ChangeBasicInfoModel.Nickname = "";
     this.authService.SaveInfo(this.ChangeBasicInfoModel).subscribe(res => {
-      localStorage.setItem('jwt', res.token);
       this.router.navigateByUrl('home/manage');
 
     });
