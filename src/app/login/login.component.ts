@@ -16,8 +16,9 @@ import {PostModel} from "../models/post-model";
 })
 export class LoginComponent {
 registerationForm: FormGroup;
- loginModel:LoginModel=new LoginModel();
- RegisterModel:RegisterModel=new RegisterModel();
+loginForm:FormGroup;
+loginModel:LoginModel=new LoginModel();
+RegisterModel:RegisterModel=new RegisterModel();
 
   constructor( private router: Router, private authService: AuthService, private fb: FormBuilder, private postService: PostService){
      // Initialize the form in the constructor
@@ -29,12 +30,15 @@ registerationForm: FormGroup;
       dateOfBirth:'',
       gender:''
     });
+    this.loginForm=this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password:['', [Validators.required],Validators.minLength(8)],
+    });
 
   }
    login(){
      this.loginModel.email = "admin@gmail.com";
      this.loginModel.password = "P@ssw0rd";
-
      this.authService.login(this.loginModel).subscribe(res => {
        localStorage.setItem('jwt', res.token);
        this.router.navigateByUrl('home/manage');
