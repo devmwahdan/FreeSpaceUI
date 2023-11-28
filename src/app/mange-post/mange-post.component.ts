@@ -22,10 +22,10 @@ export class MangePostComponent {
 
 }
 Post(){
-  this.PostModel.content = "";
+  var formValue=this.postForm.value;
+  this.PostModel.content =formValue.content;
   this.authService.Post(this.PostModel).subscribe(res => {
-    localStorage.setItem('jwt', res.token);
-    this.router.navigateByUrl('home/manage');
+  this.router.navigateByUrl('home/manage');
 
   });
 }

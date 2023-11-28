@@ -19,7 +19,9 @@ export class ChangeProfileComponent {
     });
   }
   UpdatePFP(){
-    this.ChangePFPModel.file = "";
+    var fileValue=this.ChangePFP.value;
+    this.ChangePFPModel.file =fileValue.fileUploadPic;
+    this.ChangePFPModel.file =fileValue.fileUploadCover;
     this.authService.UpdatePFP(this.ChangePFPModel).subscribe(res => {
       this.router.navigateByUrl('profile');
 

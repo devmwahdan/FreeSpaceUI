@@ -26,20 +26,23 @@ RegisterModel:RegisterModel=new RegisterModel();
       firstname: '',
       lastname:'',
       email: ['', [Validators.required, Validators.email]],
-      password:['', [Validators.required],Validators.minLength(8)],
+      password:['', [Validators.required]],
       dateOfBirth:'',
       gender:''
     });
+
     this.loginForm=this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password:['', [Validators.required],Validators.minLength(8)],
+      password:['', [Validators.required]],
     });
 
   }
    login(){
-     this.loginModel.email = "admin@gmail.com";
-     this.loginModel.password = "P@ssw0rd";
+    var formValue = this.loginForm.value;
+     this.loginModel.email = formValue.email;
+     this.loginModel.password = formValue.password;
      this.authService.login(this.loginModel).subscribe(res => {
+      debugger
        localStorage.setItem('jwt', res.token);
        this.router.navigateByUrl('home/manage');
 
@@ -48,12 +51,22 @@ RegisterModel:RegisterModel=new RegisterModel();
    }
    Register(){
     var formValue = this.registerationForm.value;
-    this.RegisterModel.FirstName="";
-    this.RegisterModel.LastName="";
-    this.RegisterModel.Email="";
-    this.RegisterModel.DateOfBirth=new Date;
-    this.RegisterModel.Gender="";
+    this.RegisterModel.FirstName=formValue.firstname;
+    this.RegisterModel.LastName=formValue.lastname;
+    this.RegisterModel.Email=formValue.email;
+    this.RegisterModel.DateOfBirth=formValue.dateOfBirth;
+    debugger
+    if(formValue.gender ="female"){
+      this.RegisterModel.Gender=formValue.gender=2;
+    }
+    else {
+      this.RegisterModel.Gender=formValue.gender=1;
+
+    }
+    this.RegisterModel.Password=formValue.password;
+    this.RegisterModel.Gender=formValue.gender;
     this.authService.Register(this.RegisterModel).subscribe(res=>{
+      debugger
       localStorage.setItem('jwt',res.token);
       this.router.navigateByUrl('/login');
     })
@@ -62,10 +75,7 @@ RegisterModel:RegisterModel=new RegisterModel();
    createPost(){
      let model: PostModel  =new PostModel() ;
      model.content = "test;"
-
-
      this.postService.create(model).subscribe(async result => {
-
      });
    }
 }

@@ -21,8 +21,9 @@ export class ChangeBasicInfoComponent {
    });
   }
    SaveInfo(){
-    this.ChangeBasicInfoModel.Bio = "";
-    this.ChangeBasicInfoModel.Nickname = "";
+    var formValue = this.BasicInfo.value;
+    this.ChangeBasicInfoModel.Bio =formValue.bio;
+    this.ChangeBasicInfoModel.Nickname =formValue.nickname;
     this.authService.SaveInfo(this.ChangeBasicInfoModel).subscribe(res => {
       this.router.navigateByUrl('profile');
 

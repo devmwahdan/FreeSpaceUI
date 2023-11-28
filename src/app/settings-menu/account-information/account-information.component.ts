@@ -15,19 +15,16 @@ export class AccountInformationComponent {
   constructor(private router: Router, private authService: AuthService, private fb: FormBuilder){
     this.AccountForm = this.fb.group({
       username:'',
-       phoneNumber: ['', Validators.minLength(10)],
+       phoneNumber:''
 
      });
   }
-
-
   Save(){
-    this.AccountInfo.username = "";
-    this.AccountInfo.phoneNumber = "";
+    var formValue = this.AccountForm.value;
+    this.AccountInfo.username =formValue.username;
+    this.AccountInfo.phoneNumber = formValue.phoneNumber;
     this.authService.Save(this.AccountInfo).subscribe(res => {
-      this.router.navigateByUrl('home/manage');
-
+    this.router.navigateByUrl('home/manage');
     });
-
   }
 }

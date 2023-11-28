@@ -4,7 +4,7 @@ export class RegisterModel{
     Email!:string;
     Password!:string;
     DateOfBirth!:Date;
-    Gender!:string;
+    Gender!:number;
     
 
 

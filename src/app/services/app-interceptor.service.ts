@@ -28,8 +28,7 @@ export class AppHttpInterceptor implements HttpInterceptor {
     headers = headers.append('Accept', 'application/json');
     headers = headers.append('Cache-control', 'no-cache');
     var url = req.url;
-debugger
-    if (url.startsWith('/assets') == false && url.startsWith('http') == false)
+
       url = environment.ServiceUrl + url;
 
     if (localStorage.getItem('jwt')) {
@@ -38,12 +37,7 @@ debugger
         'Bearer ' + localStorage.getItem('jwt')
       );
     }
-    if (localStorage.getItem('jwt')) {
-      headers = headers.append(
-        'Authorization',
-        'Bearer ' + localStorage.getItem('jwt')
-      );
-    }
+   
     const options = { headers: headers, url: url };
     const authReq = req.clone(options);
 

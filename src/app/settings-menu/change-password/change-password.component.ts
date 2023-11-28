@@ -14,14 +14,15 @@ export class ChangePasswordComponent {
   constructor( private router: Router, private authService: AuthService, private fb: FormBuilder){
     this.ChangePassword = this.fb.group({
       oldPassword: '',
-      newPassword:['', [Validators.required],Validators.minLength(8)],
-      confirmPassword:['', [Validators.required],Validators.minLength(8)],
+      newPassword:['', [Validators.required]],
+      confirmPassword:['', [Validators.required]],
     });
   }
   UpdatePassword(){
-    this.ChangePasswordModel.oldPassword = "P@ssw0rd";
-    this.ChangePasswordModel.newPassword = "P@ssw0rd";
-    this.ChangePasswordModel.confirmPassword = "P@ssw0rd";
+    var formValue = this.ChangePassword.value;
+    this.ChangePasswordModel.oldPassword = formValue.oldPassword;
+    this.ChangePasswordModel.newPassword = formValue.newPassword;
+    this.ChangePasswordModel.confirmPassword = formValue.confirmPassword;
     this.authService.UpdatePassword(this.ChangePasswordModel).subscribe(res => {
       this.router.navigateByUrl('login');
     });

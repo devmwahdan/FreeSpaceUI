@@ -17,7 +17,9 @@ export class NotificationSettingComponent {
     });
   }
   SaveNotify(){
-    if(this.NotificationModel.enableNotifications =true){
+    var formValue =this.NotifyForm.value;
+    if(formValue.enableNotifications =true){
+      this.NotificationModel.enableNotifications=formValue.enableNotifications;
       this.authService.SaveNotify(this.NotificationModel).subscribe(res => {
         this.router.navigateByUrl('home/manage');
   
