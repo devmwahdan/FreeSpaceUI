@@ -26,6 +26,10 @@ import { LeftSide } from './event/left-side/left-side.component';
 import { EventCards } from './event/event-card/event-card.component';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {AppHttpInterceptor} from "./services/app-interceptor.service";
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+import { MatButtonModule } from '@angular/material/button'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +64,11 @@ import {AppHttpInterceptor} from "./services/app-interceptor.service";
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,  
+    MatSnackBarModule,  
+    BrowserAnimationsModule
+    
   ],
   providers: [
     {

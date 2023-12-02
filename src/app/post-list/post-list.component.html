@@ -1,18 +1,16 @@
-<div class="post-container">
+<div class="post-container" *ngFor="let post of postModelList">
   <div class="post-row">
     <div class="user-profile">
       <img src="assets/image/profile/profile.jpg" alt="">
       <div>
-        <p>Rand Wahdan</p>
-        <span>November 8 2023 , 13:40 pm</span>
+        <p>{{user.fullName}}</p>
+        <span>{{post.created |date: 'yyyy-MM-dd HH:mm'}}</span>
       </div>
     </div>
     <a href="#"><i class="bi bi-three-dots-vertical"></i></a>
   </div>
 
-  <p class="post-text">No. Sorry. They are not “collateral damage” they are human beings who happen to have been born there and live there and most of those human beings are stuck there. Have some compassion, they are Palestinians not buildings or roads or things, they are human beings and so are the hostages whose lives you may also be destroying. They aren’t “collateral damage” either.
-
-    “Netanyahu Calls Palestinians ‘Collateral Damage’ As Israel Destroys Gaza”<a target="_blank" href="https://www.huffpost.com/entry/benjamin-netanyahu-israel-gaza-collateral-damage_n_655119bfe4b0373d70b28a56"> more details</a></p>
+  <p class="post-text">{{post.content}}</p>
   <div class="post-row">
     <div class="activity-icons">
       <div><img src="assets/image/icons/like-blue.png" alt="">95</div>
@@ -23,6 +21,11 @@
     </div>
   </div>
 </div>
+
+
+
+<!-- 
+
 <div class="post-container">
   <div class="post-row">
     <div class="user-profile">
@@ -72,4 +75,4 @@
     </div>
   </div>
 </div>
-<button type="button"class="load-more-button">Load More</button>
+<button type="button"class="load-more-button">Load More</button> -->

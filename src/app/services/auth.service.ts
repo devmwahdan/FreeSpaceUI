@@ -44,9 +44,7 @@ export class AuthService {
   SaveNotify(data:any):Observable<any>{
     return this.httpClient.post('/Auth/Register',data);
   }
-  Post(data:any):Observable<any>{
-    return this.httpClient.post('/Auth/Register',data);
-  }
+ 
   EventCreation(data:any):Observable<any>{
     return this.httpClient.post('/Auth/Register',data);
   }

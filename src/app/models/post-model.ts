@@ -1,8 +1,6 @@
 export class PostModel {
-    content:string;
-
-
-
-
-
+    profilePicture!:File;
+    fullName!:string;
+    content!:string;
+    created !:Date;
 }

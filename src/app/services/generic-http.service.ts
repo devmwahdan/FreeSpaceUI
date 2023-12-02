@@ -4,37 +4,37 @@ import {Observable} from "rxjs";
 import {HttpParams} from "@angular/common/http";
 
 
-export class GenericHttpService<TDto, TFilter>  {
+export class GenericHttpService<T>  {
   constructor(
     protected endpoint: string,
     protected apiHepler: ApiHelperService
   ) { }
 
-  public create(item: TDto): Observable<TDto> {
-    return this.apiHepler.post<TDto, TDto>(`${this.endpoint}`, item);
+  public create(item: T): Observable<T> {
+    return this.apiHepler.post<T, T>(`${this.endpoint}`, item);
   }
 
-  public update(item: TDto): Observable<TDto> {
-    return this.apiHepler.put<TDto, TDto>(`${this.endpoint}`, item);
+  public update(item: T): Observable<T> {
+    return this.apiHepler.put<T, T>(`${this.endpoint}`, item);
   }
 
-  get(id: number): Observable<TDto> {
-    return this.apiHepler.get<TDto>(`${this.endpoint}/${id}`);
-  }
-
-
-  getAll(): Observable<TDto[]> {
-    return this.apiHepler.get<TDto[]>(`${this.endpoint}`);
+  get(id: number): Observable<T> {
+    return this.apiHepler.get<T>(`${this.endpoint}/${id}`);
   }
 
 
- /* search(search: SearchPageDto<TFilter>): Observable<PagedDataDto<TDto>> {
-    return this.apiHepler.post<SearchPageDto<TFilter>, PagedDataDto<TDto>>(`${this.endpoint}/search`, search);
+  getAll(): Observable<T[]> {
+    return this.apiHepler.get<T[]>(`${this.endpoint}`);
+  }
+
+
+ /* search(search: SearchPageDto<TFilter>): Observable<PagedDataDto<T>> {
+    return this.apiHepler.post<SearchPageDto<TFilter>, PagedDataDto<T>>(`${this.endpoint}/search`, search);
   }*/
 
 
   delete(id: number){
-    return this.apiHepler.delete<TDto>(`${this.endpoint}/${id}`, new HttpParams());
+    return this.apiHepler.delete<T>(`${this.endpoint}/${id}`, new HttpParams());
   }
 
 }

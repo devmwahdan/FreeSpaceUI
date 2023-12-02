@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { debounceTime } from 'rxjs';
+import { UserModel } from '../models/user-model';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,11 @@ import { debounceTime } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   hideActionMenu=false;
+  user:UserModel;
   ngOnInit(): void {
+    let userStorge=localStorage.getItem('user');
+    this.user  = userStorge ? JSON.parse(userStorge) : null;
+
    }
 
    settingsMenuToggle(){

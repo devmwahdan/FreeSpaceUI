@@ -9,15 +9,15 @@ import {catchError, map} from "rxjs/operators";
 })
 export class ApiHelperService {
 
-  private baseUrl = environment.ServiceUrl;
+  
 
   constructor(private http: HttpClient) { }
 
   post<TData, TResponse>(uri: string, data: TData, params = new HttpParams()): Observable<TResponse> {
     let headers = new HttpHeaders();
-
-    let url = this.baseUrl + uri;
-    return this.http.post(url, data, { params: params, headers: headers }).
+debugger
+     
+    return this.http.post(uri, data, { params: params, headers: headers }).
     pipe(
       map(
         (res: any) => {
@@ -38,8 +38,7 @@ export class ApiHelperService {
   postBase64<TData>(uri: string, data: TData, params = new HttpParams()): Observable<string> {
     let headers = new HttpHeaders();
 
-    let url =this.baseUrl + uri;
-    return this.http.post(url, data, { params: params, headers: headers, responseType: 'text' }).
+    return this.http.post(uri, data, { params: params, headers: headers, responseType: 'text' }).
     pipe(
       map(
         (res: string) => {
@@ -57,7 +56,7 @@ export class ApiHelperService {
         }));
   }
 
-  postFile(formData: FormData, options: {
+  postFile(uri: string, formData: FormData, options: {
     headers?: HttpHeaders | {
       [header: string]: string | string[];
     };
@@ -69,14 +68,13 @@ export class ApiHelperService {
     responseType: 'arraybuffer';
     withCredentials?: boolean;
   }): Observable<ArrayBuffer> {
-    return this.http.post(this.baseUrl + 'attachment', formData, options);
+    return this.http.post(uri + 'attachment', formData, options);
   }
 
   put<TData, TResponse>(uri: string, data: TData, params = new HttpParams()): Observable<TResponse> {
     let headers = new HttpHeaders();
 
-    let url =this.baseUrl + uri;
-    return this.http.put(url, data, { params: params, headers: headers }).
+    return this.http.put(uri, data, { params: params, headers: headers }).
     pipe(
       map(
         (res: any) => {
@@ -98,8 +96,7 @@ export class ApiHelperService {
   get<TResponse>(uri: string, params = new HttpParams()): Observable<TResponse> {
     let headers = new HttpHeaders();
 
-    let url =  this.baseUrl + uri;
-    return this.http.get(url, { params: params, headers: headers }).
+     return this.http.get(uri, { params: params, headers: headers }).
     pipe(map((res: any) => { return this.handleSuccess(res); })
       , catchError((error: HttpErrorResponse) => { return this.handelError(error); })
       , finalize(() => { this.handleFinally(); }));
@@ -107,8 +104,7 @@ export class ApiHelperService {
 
   delete<TResponse>(uri: string, params = new HttpParams()): Observable<TResponse> {
     let headers = new HttpHeaders();
-    let url =  this.baseUrl + uri;
-    return this.http.delete(url, { params: params, headers: headers }).
+    return this.http.delete(uri, { params: params, headers: headers }).
     pipe(
       map(
         (res: any) => {
@@ -131,8 +127,7 @@ export class ApiHelperService {
   getBlob(uri: string) {
     let headers = new HttpHeaders();
 
-    let url =this.baseUrl + uri;
-    return this.http.get(url, { responseType: 'blob', headers: headers });
+    return this.http.get(uri, { responseType: 'blob', headers: headers });
   }
 
 
