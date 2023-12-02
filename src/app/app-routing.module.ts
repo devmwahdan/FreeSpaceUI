@@ -37,10 +37,9 @@ const routes: Routes = [
    
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  {
-    path: 'ProfilePage', component:ProfilePage,
-   
-  },
+ 
+  { path: 'ProfilePage/:id', component: ProfilePage },
+
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'Event', component:Event,

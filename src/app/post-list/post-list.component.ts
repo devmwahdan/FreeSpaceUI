@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UserModel } from '../models/user-model';
 import { PostModel } from '../models/post-model';
 import { Router } from '@angular/router';
 import { PostService } from '../services/post.service';
+import { LikeModel } from '../models/like-model';
 
 @Component({
   selector: 'app-post-list',
@@ -12,13 +13,22 @@ import { PostService } from '../services/post.service';
 export class PostListComponent implements OnInit{
   user:UserModel;
   postModelList :PostModel[]=[];
-  constructor(   private postService: PostService){
+  isCurrentPostLiked = false;
+  @Input() userId: any;
+  constructor(private postService: PostService){
   }
 
   ngOnInit(): void {
     let userStorge=localStorage.getItem('user');
     this.user  = userStorge ? JSON.parse(userStorge) : null;
+
+    if(this.userId==null){
+
     this.getPosts();
+  }
+  else{
+    this.getUserPosts(this.userId)
+  }
 
    }
    
@@ -29,6 +39,44 @@ export class PostListComponent implements OnInit{
 
   });
 
+  }
+  getUserPosts(userId:any){
+    debugger
+  this.postService.getPostByUser(userId).subscribe(async result => {
+    this.postModelList=result;
+
+  });
+
+  }
+  makeLike(post :any){
+
+    let likeModel=new LikeModel();
+    likeModel.postId=post.postId;
+    this.postService.makeLike(likeModel).subscribe(async result => {
+  
+      if(result==true){
+debugger
+        post.isLiked = true
+        post.likesCount += 1;
+      }
+  
+    });
+  }
+
+  makeDislike(post :any){
+
+    let likeModel=new LikeModel();
+    likeModel.postId=post.postId;
+    this.postService.makeDisLike(likeModel).subscribe(async result => {
+  
+      if(result==true){
+
+       post.isLiked = false
+       post.likesCount -= 1;
+
+      }
+  
+    });
   }
 
 }

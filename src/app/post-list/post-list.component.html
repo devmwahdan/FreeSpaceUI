@@ -3,7 +3,7 @@
     <div class="user-profile">
       <img src="assets/image/profile/profile.jpg" alt="">
       <div>
-        <p>{{user.fullName}}</p>
+        <p>{{post.fullName}}</p>
         <span>{{post.created |date: 'yyyy-MM-dd HH:mm'}}</span>
       </div>
     </div>
@@ -13,9 +13,11 @@
   <p class="post-text">{{post.content}}</p>
   <div class="post-row">
     <div class="activity-icons">
-      <div><img src="assets/image/icons/like-blue.png" alt="">95</div>
+      <div *ngIf="post.isLiked"><img src="assets/image/icons/like-blue.png" alt=""(click)="makeDislike(post)">{{post.likesCount}}</div>
+      <div *ngIf="!post.isLiked"><img src="assets/image/icons/like.png" alt=""(click)="makeLike(post)">{{post.likesCount}}</div>
+
+
       <div><img src="assets/image/icons/comments.png" alt="">15</div>
-      <div><img src="assets/image/icons/share.png" alt="">4</div>
 
 
     </div>

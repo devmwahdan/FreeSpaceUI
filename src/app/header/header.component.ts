@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { debounceTime } from 'rxjs';
 import { UserModel } from '../models/user-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,9 @@ import { UserModel } from '../models/user-model';
 export class HeaderComponent implements OnInit {
   hideActionMenu=false;
   user:UserModel;
+  constructor(private router: Router){
+
+  }
   ngOnInit(): void {
     let userStorge=localStorage.getItem('user');
     this.user  = userStorge ? JSON.parse(userStorge) : null;
@@ -19,4 +23,7 @@ export class HeaderComponent implements OnInit {
    settingsMenuToggle(){
     this.hideActionMenu =!this.hideActionMenu;
    }
+   viewUserDetail() {
+    this.router.navigate(['/ProfilePage', this.user.id]);
+  }
 }
