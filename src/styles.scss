@@ -1518,50 +1518,31 @@ body {
   transition:background 0.3s;
 
 }
-.bar-input{
-    width: 100%;
-    background: #c5c0c0;
-    border: none;
-    padding: 1.2rem;
-    font-size: 1.5rem;
-    color: #000;
-    border-top-right-radius: 2rem;
-    border-bottom-left-radius: 2rem;
-    outline: none;
-    flex: 1;
-}
-.box-profile{
-    margin-right: 1rem;
+.comment-box {
     position: relative;
-}
-.box-profile::after{
-    content: "";
-    display: block;
+    width: 100%;
+    margin-top: 30px;
+  }
+  
+  .comment-box input {
+    width: 500px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-right: 40px; /* Adjust based on button width */
+  }
+  
+  .comment-box button {
     position: absolute;
-    width: 0.7rem;
-    height: 0.7rem;
-    bottom: 0.3rem;
-    left: 2.3rem;
-    border: 0.3rem solid var(--bg-color);
-}
-.box-profile:hover{
+    top: 0;
+    right: 0;
+    width: 120px; /* Adjust as needed */
+    height: 98.5%;
+    background-color: var(--nav-color);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
     cursor: pointer;
-}
-.box-bar{
-    display: flex;
-    align-items: center;
-    flex: 1;
-}
-.commentbox{
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-.bar-input::placeholder{
-    opacity: 0.8;
-}
-.profile-pic{
-    width: 3.2rem;
-    height: 3.2rem;
-    border-radius: 50%;
-}
+  }
+  
+ 
