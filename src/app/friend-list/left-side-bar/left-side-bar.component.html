@@ -1,10 +1,10 @@
 <div   class="friend-container">  
     <div class="friend-container-header"> 
-        <div class ="heading">All Friends</div>
-        <div class="search">
-            <img src="assets/image/icons/search.png" alt="">
-            <input type="text" placeholder="Search Friends ">
+        <div class ="heading">
+            <button (click)="showAllFriends()">All Friends</button>
+            <button (click)="showPendingFriends()">Pending Friends</button>
         </div>
+       
     </div>
     <div class="friends-body">
         <div class="user-row">

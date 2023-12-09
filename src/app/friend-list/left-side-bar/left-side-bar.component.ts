@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './left-side-bar.component.scss'
 })
 export class LeftSideFriendList {
-
+  showAllFriends(){}
+  showPendingFriends(){}
 }
