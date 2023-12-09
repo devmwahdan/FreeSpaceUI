@@ -8,5 +8,6 @@ export class UserModel{
     profilePicture!:File;
     bio!:string;
     fullName!:string;
+   
 
 } 

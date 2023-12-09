@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { debounceTime } from 'rxjs';
 import { UserModel } from '../models/user-model';
 import { Router } from '@angular/router';
@@ -6,10 +6,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+ 
 })
 export class HeaderComponent implements OnInit {
+  @Input() userId:any;
   hideActionMenu=false;
+  hideActionMenu2: boolean = true;
   user:UserModel;
   constructor(private router: Router){
 
@@ -25,5 +27,9 @@ export class HeaderComponent implements OnInit {
    }
    viewUserDetail() {
     this.router.navigate(['/ProfilePage', this.user.id]);
+  }
+  toggleMenu(){
+    this.hideActionMenu2 =!this.hideActionMenu2;
+
   }
 }

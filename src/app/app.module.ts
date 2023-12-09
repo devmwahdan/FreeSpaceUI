@@ -29,7 +29,6 @@ import {AppHttpInterceptor} from "./services/app-interceptor.service";
 import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 import { MatButtonModule } from '@angular/material/button'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,8 +54,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LeftSide,
     EventCards,
     LoginComponent,
+    ChangeProfileComponent,
     
-    ChangeProfileComponent
 
   ],
   imports: [
@@ -76,6 +75,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       useClass: AppHttpInterceptor,
       multi: true,}
   ],
+
+  
 
   bootstrap: [AppComponent]
 })

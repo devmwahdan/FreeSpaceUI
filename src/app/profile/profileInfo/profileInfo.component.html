@@ -4,35 +4,20 @@
     <div class="info-col">
 <div class="profile-intro">
     <h3>Intro</h3>
-    <p class="intro-text">Believe in your self and you can do unbelievable things.
+    <p class="intro-text">{{user.bio}}
         <img src="img/images/feeling.png" alt="">
     </p>
     <hr>
     <ul>
-        <li><img src="assets/image/icons/profile-study.png" alt="">Studied at Hashmite  University</li>
-        <li><img src="assets/image/icons/location.png" alt=""style="width: 20px;">Lives in Jordan , Amman</li>
-        <li><img src="assets/image/icons/birthdate2.png" alt="">19/5/2002</li>
+   
+        <li><img src="assets/image/icons/icons8-gender-100.png" alt=""style="width: 20px;"> <span *ngIf="user.gender === 1">Female</span><span *ngIf="user.gender === 2">Male</span></li>
+        <li><img src="assets/image/icons/birthdate2.png" alt="">{{user.dateOfBirth | date:'dd/MM/yyyy'}}</li>
     </ul>
 
 </div>
 
 
-<div class="profile-intro">
-  
-    <div class="title-box">
-        <h3>Photos</h3>
-        <a href="">All Photo</a>
-    </div>
-  
-    <div class="Photo-box">
-        <div><img src="assets/image/post/imgPost6.jpg" alt=""></div>
-        <div><img src="assets/image/post/imgPost7.jpg" alt=""></div>
-        <div><img src="assets/image/post/imgPost5.jpg" alt=""></div>
-        <div><img src="assets/image/post/imgPost8.JPG" alt=""></div>
-       
 
-    </div>
-</div>
 
 <div class="profile-intro">
   

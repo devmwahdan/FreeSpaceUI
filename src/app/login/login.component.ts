@@ -91,9 +91,24 @@ RegisterModel:RegisterModel=new RegisterModel();
     this.authService.Register(this.RegisterModel).subscribe(res=>{
       debugger
       localStorage.setItem('jwt',res.token);
-      this.router.navigateByUrl('/login');
-    })
+        // Registration successful
+       
+        this.showPopup('Success', 'Registration successful. Redirecting to login...');
+        // Reset the form after successful registration
+        this.registerationForm.reset();
+        // Redirect to login after a short delay (you might want to use a router event to handle this more elegantly)
+        setTimeout(() => {
+          this.router.navigateByUrl('/login');
+        }, 2000);
+      },
+      (error) => {
+        this.showPopup('Error', 'Registration failed. Please try again.');
+      }
+    );
    }
-
+   showPopup(title: string, message: string) {
+    // Implement your popup logic here (e.g., using a library or custom component)
+    alert(`${title}\n${message}`);
+  }
   
 }

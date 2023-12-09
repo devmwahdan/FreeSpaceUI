@@ -4,6 +4,7 @@ import { PostModel } from '../models/post-model';
 import { Router } from '@angular/router';
 import { PostService } from '../services/post.service';
 import { LikeModel } from '../models/like-model';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-post-list',
@@ -15,10 +16,17 @@ export class PostListComponent implements OnInit{
   postModelList :PostModel[]=[];
   isCurrentPostLiked = false;
   @Input() userId: any;
-  constructor(private postService: PostService){
+  constructor(private postService: PostService, private sharedService: SharedService){
   }
 
   ngOnInit(): void {
+    this.sharedService.posts$.subscribe((isPosCreated) => {
+    if(isPosCreated) {
+      this.getPosts();
+    }
+    });
+
+
     let userStorge=localStorage.getItem('user');
     this.user  = userStorge ? JSON.parse(userStorge) : null;
 
