@@ -10,14 +10,14 @@
       </div>
       <label for="fileUploadPic">Upload Profile picture</label>
       <br>
-      <input type="file" name="fileUploadPic" formControlName="fileUploadPic">
-      <button type="submit" class="btn">Upload</button>
+      <input type="file" name="fileUploadPic" formControlName="fileUploadPic" (change)="onFileChanged($event)">
+      <button type="submit" class="btn" (click)="onUpload()">Upload</button>
       <div class="buttonWrapper">
       </div>
       <label for="fileUploadPic">Upload Cover picture</label>
       <br>
-      <input type="file" name="fileUploadCover" formControlName="fileUploadCover">
-      <button type="submit" class="btn">Upload</button>
+      <input type="file" name="fileUploadCover" formControlName="fileUploadCover" (change)="onFileCoverChanged($event)">
+      <button type="submit" class="btn" (click)="onUploadCover()">Upload</button>
       <div class="buttonWrapper">
       </div>
 

@@ -28,6 +28,8 @@ ngOnInit(): void {
   let userStorge=localStorage.getItem('user');
   this.user  = userStorge ? JSON.parse(userStorge) : null;
 
+
+
  }
 
 Post(){

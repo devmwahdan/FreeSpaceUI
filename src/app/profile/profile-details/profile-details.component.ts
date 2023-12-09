@@ -10,7 +10,10 @@ export class ProfileDetails implements OnInit{
   user:UserModel;
   ngOnInit(): void {
     let userStorge=localStorage.getItem('user');
+    debugger
     this.user  = userStorge ? JSON.parse(userStorge) : null;
-   } 
+
+
+   }
 
 }
