@@ -82,9 +82,8 @@ RegisterModel:RegisterModel=new RegisterModel();
     if(formValue.gender ="female"){
       this.RegisterModel.Gender=formValue.gender=2;
     }
-    else {
+    else if (formValue.gender ="male") {
       this.RegisterModel.Gender=formValue.gender=1;
-
     }
     this.RegisterModel.Password=formValue.password;
     this.RegisterModel.Gender=formValue.gender;
