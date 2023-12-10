@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -6,6 +6,7 @@ import { ChangePFPModel } from '../../models/Change-PFP.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import {environment} from "../../../environment";
+import {SharedService} from "../../services/shared.service";
 @Component({
   selector: 'app-change-profile',
   templateUrl: './change-profile.component.html',
@@ -15,7 +16,11 @@ export class ChangeProfileComponent {
   ChangePFP:FormGroup;
   ChangePFPModel:ChangePFPModel=new ChangePFPModel();
   selectedFile: File;
+  @ViewChild('fileInputProfile') fileInputProfile: any;
+
+  @ViewChild('fileInputCover') fileInputCover: any;
   constructor( private router: Router, private authService: AuthService, private fb: FormBuilder,
+               private sharedService: SharedService,
                private http: HttpClient){
     this.ChangePFP = this.fb.group({
       fileUploadPic: '',
@@ -56,10 +61,11 @@ export class ChangeProfileComponent {
   }
 
   onUploadCover() {
-    debugger
     this.uploadCoverImage(this.selectedFile).subscribe(
       (response) => {
         console.log('Image uploaded successfully:', response);
+        this.sharedService.updateProfile(true);
+        this.fileInputCover.nativeElement.value = '';
       },
       (error) => {
         console.error('Error uploading image:', error);
@@ -68,10 +74,12 @@ export class ChangeProfileComponent {
   }
 
   onUpload() {
-    debugger
     this.uploadImage(this.selectedFile).subscribe(
       (response) => {
         console.log('Image uploaded successfully:', response);
+debugger
+        this.sharedService.updateProfile(true);
+        this.fileInputProfile.nativeElement.value = '';
       },
       (error) => {
         console.error('Error uploading image:', error);

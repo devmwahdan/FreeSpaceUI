@@ -26,9 +26,14 @@ return this.httpClient.post('/post/make-like',PostModel);
     return this.httpClient.post('/post/make-disLike',PostModel);
       }
 
+
+  makeComment(comment:any):Observable<any>{
+    return this.httpClient.post('/post/make-comment',comment);
+  }
+
       getPostByUser(userId:any):  Observable<any> {
         //debugger
         return this.httpClient.get(`/post/get-posts/${userId}`);
       }
-     
+
 }

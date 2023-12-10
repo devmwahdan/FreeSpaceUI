@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { debounceTime } from 'rxjs';
 import { UserModel } from '../models/user-model';
 import { Router } from '@angular/router';
+import {SharedService} from "../services/shared.service";
 
 @Component({
   selector: 'app-header',
@@ -13,13 +14,20 @@ export class HeaderComponent implements OnInit {
   hideActionMenu=false;
   hideActionMenu2: boolean = true;
   user:UserModel;
-  constructor(private router: Router){
+  constructor(private router: Router, private sharedService: SharedService){
 
   }
   ngOnInit(): void {
+    debugger
     let userStorge=localStorage.getItem('user');
     this.user  = userStorge ? JSON.parse(userStorge) : null;
 
+    this.sharedService.profile$.subscribe((isPosCreated) => {
+      if(isPosCreated) {
+        let userStorge=localStorage.getItem('user');
+        this.user  = userStorge ? JSON.parse(userStorge) : null;
+      }
+    });
 
    }
 

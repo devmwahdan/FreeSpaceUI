@@ -28,7 +28,12 @@ ngOnInit(): void {
   let userStorge=localStorage.getItem('user');
   this.user  = userStorge ? JSON.parse(userStorge) : null;
 
-
+  this.sharedService.profile$.subscribe((isPosCreated) => {
+    if(isPosCreated) {
+      let userStorge=localStorage.getItem('user');
+      this.user  = userStorge ? JSON.parse(userStorge) : null;
+    }
+  });
 
  }
 

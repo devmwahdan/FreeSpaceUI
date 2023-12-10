@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { PostService } from '../services/post.service';
 import { LikeModel } from '../models/like-model';
 import { SharedService } from '../services/shared.service';
+import {CommentModel} from "../models/comment-model";
+import {FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-post-list',
@@ -12,11 +14,16 @@ import { SharedService } from '../services/shared.service';
   styleUrl: './post-list.component.scss'
 })
 export class PostListComponent implements OnInit{
+  commentForm: FormGroup;
   user:UserModel;
   postModelList :PostModel[]=[];
   isCurrentPostLiked = false;
   @Input() userId: any;
-  constructor(private postService: PostService, private sharedService: SharedService){
+  constructor(private postService: PostService, private sharedService: SharedService, private fb: FormBuilder){
+
+    this.commentForm = this.fb.group({
+      content: '',
+    });
   }
 
   ngOnInit(): void {
@@ -39,7 +46,7 @@ export class PostListComponent implements OnInit{
   }
 
    }
-   
+
    getPosts(){
     debugger
   this.postService.getPost().subscribe(async result => {
@@ -61,13 +68,13 @@ export class PostListComponent implements OnInit{
     let likeModel=new LikeModel();
     likeModel.postId=post.postId;
     this.postService.makeLike(likeModel).subscribe(async result => {
-  
+
       if(result==true){
 debugger
         post.isLiked = true
         post.likesCount += 1;
       }
-  
+
     });
   }
 
@@ -76,17 +83,31 @@ debugger
     let likeModel=new LikeModel();
     likeModel.postId=post.postId;
     this.postService.makeDisLike(likeModel).subscribe(async result => {
-  
+
       if(result==true){
 
        post.isLiked = false
        post.likesCount -= 1;
 
       }
-  
+
     });
   }
-  addComment(){
+  addComment(post :any){
+    let commentModel=new CommentModel();
 
+    var formValue = this.commentForm.value;
+    commentModel.content=formValue.content;
+
+    commentModel.postId=post.postId;
+    this.postService.makeComment(commentModel).subscribe(async result => {
+
+      if(result==true){
+        formValue.content = '';
+        this.commentForm.reset();
+
+      }
+
+    });
   }
 }

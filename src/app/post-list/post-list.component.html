@@ -19,17 +19,20 @@
 
       <div><img src="assets/image/icons/comments.png" alt="">15</div>
 
+<form [formGroup]="commentForm" (ngSubmit)="addComment(post)">
 <div class="comment-box">
-  <input type="text" placeholder="Add a comment" />
-  <button (click)="addComment()">Add Comment</button>
+  <input type="text"  name="content" id="content"  formControlName="content" placeholder="Add a comment" />
+  <button type="submit">Add Comment</button>
 </div>
+</form>
+
 </div>
   </div>
 </div>
 
 
 
-<!-- 
+<!--
 
 <div class="post-container">
   <div class="post-row">
