@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { debounceTime } from 'rxjs';
 import { UserModel } from '../models/user-model';
 import { Router } from '@angular/router';
 import {SharedService} from "../services/shared.service";
+import {PostService} from "../services/post.service";
+import {NotificationModel} from "../models/Notification-model";
 
 @Component({
   selector: 'app-header',
@@ -14,11 +15,14 @@ export class HeaderComponent implements OnInit {
   hideActionMenu=false;
   hideActionMenu2: boolean = true;
   user:UserModel;
-  constructor(private router: Router, private sharedService: SharedService){
+  notificationsModels:NotificationModel[]=[];
+
+  constructor(private router: Router, private sharedService: SharedService, private  postService :PostService){
 
   }
   ngOnInit(): void {
-    debugger
+
+    this.getNotifications();
     let userStorge=localStorage.getItem('user');
     this.user  = userStorge ? JSON.parse(userStorge) : null;
 
@@ -40,5 +44,14 @@ export class HeaderComponent implements OnInit {
   toggleMenu(){
     this.hideActionMenu2 =!this.hideActionMenu2;
 
+  }
+
+  getNotifications() {
+    debugger
+    this.postService.getNotifications().subscribe(async result => {
+      debugger
+      this.notificationsModels = result
+
+    });
   }
 }

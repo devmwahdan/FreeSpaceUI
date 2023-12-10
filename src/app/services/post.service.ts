@@ -36,4 +36,9 @@ return this.httpClient.post('/post/make-like',PostModel);
         return this.httpClient.get(`/post/get-posts/${userId}`);
       }
 
+  getNotifications():  Observable<any> {
+    //debugger
+    return this.httpClient.get('/post/get-notification');
+  }
+
 }

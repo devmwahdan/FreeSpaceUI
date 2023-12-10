@@ -5,21 +5,21 @@
         <div class="icon" >
             <button type="button" (click)="toggleMenu()">
 
-            <img  src="assets/image/icons/icons8-notification-50.png"alt="notification-icon"><span>17</span>
+            <img  src="assets/image/icons/icons8-notification-50.png"alt="notification-icon"><span>{{notificationsModels.length}}</span>
             </button>
         </div>
 
 
         <div class="notifi-box" id="box" [ngClass]="{'notifi-box-height': !hideActionMenu2}" >
-            <h2>Notification <span>17</span></h2>
-            <div class="notifi-item">
-                <img src="assets/image/profile/member2.jpg" alt="">
+            <h2>Notification <span>{{notificationsModels.length}}</span></h2>
+            <div class="notifi-item" *ngFor="let notification of notificationsModels">
+                <img [src]="notification.profilePicture" alt="">
                 <div class="text">
-                    <h4>Abdulrahman Alshami </h4>
-                    <p>Abdulrahman Alshami likes your post</p>
+                    <h4>{{notification.fullName}}</h4>
+                    <p>{{notification.content}}</p>
                 </div>
             </div>
-            <div class="notifi-item">
+      <!--      <div class="notifi-item">
                 <img src="assets/image/profile/member5.jpg" alt="">
                 <div class="text">
                     <h4>Rahaf Abu-Samrah </h4>
@@ -46,7 +46,7 @@
                     <h4>Mohammad Wahdan </h4>
                     <p>Mohammad Wahdan Share your post</p>
                 </div>
-            </div>
+            </div>-->
         </div>
             <a routerLink="/home/manage"><img src="assets/image/icons/home.png" style="margin-top: 20px;"  alt="Home"></a>
         </div>
