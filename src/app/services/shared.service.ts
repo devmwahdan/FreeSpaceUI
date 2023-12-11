@@ -19,7 +19,7 @@ export class SharedService {
   updatePosts(isPostUpdated:boolean) {
     this.postsSubject.next(isPostUpdated);
   }
-
+ 
   updateProfile(isProfileUpdated:boolean) {
 
     this.authService.getUser().subscribe(async res => {

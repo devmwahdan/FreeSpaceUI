@@ -5,10 +5,10 @@ import {SharedService} from "../../services/shared.service";
 @Component({
   selector: 'profile-details',
   templateUrl: './profile-details.component.html',
-  styleUrl: './profile-details.component.scss'
 })
 export class ProfileDetails implements OnInit{
   user:UserModel;
+ 
   constructor(private sharedService: SharedService) {
   }
   ngOnInit(): void {

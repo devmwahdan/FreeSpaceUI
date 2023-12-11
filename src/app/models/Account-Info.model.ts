@@ -1,6 +1,6 @@
 export class AccountInfo {
     username!: String;
-    phoneNumber!: string;
+    MobileNumber!: number;
     Bio!: String;
     Nickname!: string;
   }

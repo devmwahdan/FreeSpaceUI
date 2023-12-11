@@ -5,11 +5,10 @@ export class UserModel{
     email!:string;
     dateOfBirth!:Date;
     gender!:number;
-  profilePicture!:string;
-  coverPicture!:string;
-     bio!:string;
+    mobileNumber!:number;
+    profilePicture!:string;
+    coverPicture!:string;
+    bio!:string;
     fullName!:string;
-
-
-
+    NickName!:string;
 }

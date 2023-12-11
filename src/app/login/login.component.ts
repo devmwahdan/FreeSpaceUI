@@ -77,15 +77,13 @@ RegisterModel:RegisterModel=new RegisterModel();
     this.RegisterModel.FirstName=formValue.firstname;
     this.RegisterModel.LastName=formValue.lastname;
     this.RegisterModel.Email=formValue.email;
-    this.RegisterModel.DateOfBirth=formValue.dateOfBirth;
-    debugger
-    if(formValue.gender ="female"){
-      this.RegisterModel.Gender=formValue.gender=2;
-    }
-    else if (formValue.gender ="male") {
-      this.RegisterModel.Gender=formValue.gender=1;
-    }
     this.RegisterModel.Password=formValue.password;
+    this.RegisterModel.DateOfBirth=formValue.dateOfBirth;
+    if (formValue.gender === "female") {
+      this.RegisterModel.Gender = formValue.gender = 2;
+    } else if (formValue.gender === "male") {
+      this.RegisterModel.Gender = formValue.gender = 1;
+    }
     this.RegisterModel.Gender=formValue.gender;
     this.authService.Register(this.RegisterModel).subscribe(res=>{
       debugger

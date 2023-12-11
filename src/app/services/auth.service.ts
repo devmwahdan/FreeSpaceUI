@@ -33,7 +33,8 @@ export class AuthService {
     return this.httpClient.post('/Auth/Register',data);
   }
   SaveInfo(data:any):Observable<any>{
-    return this.httpClient.post('/Auth/Register',data);
+    debugger
+    return this.httpClient.post('/User/updateUserInfo',data);
   }
   UpdatePassword(data:any):Observable<any>{
     return this.httpClient.post('/Auth/Register',data);
