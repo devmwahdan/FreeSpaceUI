@@ -47,9 +47,7 @@ export class HeaderComponent implements OnInit {
   }
 
   getNotifications() {
-    debugger
     this.postService.getNotifications().subscribe(async result => {
-      debugger
       this.notificationsModels = result
 
     });

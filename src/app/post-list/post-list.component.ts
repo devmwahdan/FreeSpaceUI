@@ -48,7 +48,6 @@ export class PostListComponent implements OnInit{
    }
 
    getPosts(){
-    debugger
   this.postService.getPost().subscribe(async result => {
     this.postModelList=result;
 
@@ -70,7 +69,7 @@ export class PostListComponent implements OnInit{
     this.postService.makeLike(likeModel).subscribe(async result => {
 
       if(result==true){
-debugger
+
         post.isLiked = true
         post.likesCount += 1;
       }

@@ -9,7 +9,6 @@ export class UserModel{
   coverPicture!:string;
      bio!:string;
     fullName!:string;
-
-
+  isAdded:boolean
 
 }
