@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import {SharedService} from "../services/shared.service";
 import {PostService} from "../services/post.service";
 import {NotificationModel} from "../models/Notification-model";
-
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -34,7 +34,10 @@ export class HeaderComponent implements OnInit {
     });
 
    }
-
+   Logout(){
+    debugger
+    localStorage.removeItem('user');
+   }
    settingsMenuToggle(){
     this.hideActionMenu =!this.hideActionMenu;
    }

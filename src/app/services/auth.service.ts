@@ -23,6 +23,7 @@ export class AuthService {
     localStorage.removeItem('jwt');
     return this.httpClient.post('/Auth/Login', data);
   }
+ 
   Register(data:any):Observable<any>{
     //debugger
     localStorage.removeItem('jwt');
@@ -53,6 +54,10 @@ export class AuthService {
   getUser():  Observable<any> {
     //debugger
     return this.httpClient.get('/Auth/getUser');
+  }
+  Logout(data:any): Observable<any>{
+    localStorage.removeItem('jwt');
+    return this.httpClient.post('/Auth/Logout', {});
   }
 
 }
