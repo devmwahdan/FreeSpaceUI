@@ -48,6 +48,8 @@ RegisterModel:RegisterModel=new RegisterModel();
         localStorage.setItem('jwt', res.token);
         const userObj = JSON.stringify(res);
         localStorage.setItem('user',userObj);
+        console.log(res);
+
         this.router.navigateByUrl('home/manage');
 
       } else {

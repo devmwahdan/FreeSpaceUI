@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import {environment} from "../../../environment";
 import {SharedService} from "../../services/shared.service";
+import { UserModel } from '../../models/user-model';
 @Component({
   selector: 'app-change-profile',
   templateUrl: './change-profile.component.html',
@@ -16,6 +17,8 @@ export class ChangeProfileComponent {
   ChangePFP:FormGroup;
   ChangePFPModel:ChangePFPModel=new ChangePFPModel();
   selectedFile: File;
+  user:UserModel;
+
   @ViewChild('fileInputProfile') fileInputProfile: any;
 
   @ViewChild('fileInputCover') fileInputCover: any;
@@ -27,6 +30,10 @@ export class ChangeProfileComponent {
       fileUploadCover:''
 
     });
+  }
+  ngOnInit(): void {
+    let userStorge=localStorage.getItem('user');
+    this.user  = userStorge ? JSON.parse(userStorge) : null;
   }
   UpdatePFP(){
     var fileValue=this.ChangePFP.value;

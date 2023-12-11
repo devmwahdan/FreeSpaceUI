@@ -19,7 +19,7 @@ export class AuthService {
   }*/
 
   login(data: any):  Observable<any> {
-    //debugger
+    debugger
     localStorage.removeItem('jwt');
     return this.httpClient.post('/Auth/Login', data);
   }

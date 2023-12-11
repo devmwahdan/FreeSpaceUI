@@ -10,5 +10,5 @@ export class UserModel{
     coverPicture!:string;
     bio!:string;
     fullName!:string;
-    NickName!:string;
+    nickName!:string;
 }

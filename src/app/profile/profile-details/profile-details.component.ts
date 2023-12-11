@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input, Output } from '@angular/core';
 import { UserModel } from '../../models/user-model';
 import {SharedService} from "../../services/shared.service";
 
@@ -8,12 +8,11 @@ import {SharedService} from "../../services/shared.service";
 })
 export class ProfileDetails implements OnInit{
   user:UserModel;
- 
+
   constructor(private sharedService: SharedService) {
   }
   ngOnInit(): void {
     let userStorge=localStorage.getItem('user');
-    debugger
     this.user  = userStorge ? JSON.parse(userStorge) : null;
 
     this.sharedService.profile$.subscribe((isPosCreated) => {
@@ -23,5 +22,6 @@ export class ProfileDetails implements OnInit{
       }
     });
    }
+
 
 }
