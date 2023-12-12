@@ -11,4 +11,5 @@ export class UserModel{
     bio!:string;
     fullName!:string;
     nickName!:string;
+  isAdded:boolean
 }

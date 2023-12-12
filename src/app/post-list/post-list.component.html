@@ -1,7 +1,7 @@
 <div class="post-container" *ngFor="let post of postModelList">
   <div class="post-row">
     <div class="user-profile">
-      <img [src]="user.profilePicture" alt="">
+      <img src="assets/image/profile/profile.jpg" alt="">
       <div>
         <p>{{post.fullName}}</p>
         <span>{{post.created |date: 'yyyy-MM-dd HH:mm'}}</span>
@@ -14,39 +14,21 @@
   <div class="post-row">
     <div class="activity-icons">
       <div *ngIf="post.isLiked"><img src="assets/image/icons/like-blue.png" alt=""(click)="makeDislike(post)">{{post.likesCount}}</div>
-      <div *ngIf="!post.isLiked"><img src="assets/image/icons/like.png" alt=""(click)="makeLike(post)">{{post.likesCount}}</div>
+      <div *ngIf="!post.isLiked"><img src="assets/image/icons/like.png" alt="" (click)="makeLike(post)">{{post.likesCount}}</div>
+
+
       <div><img src="assets/image/icons/comments.png" alt="">15</div>
-    </div>
-  </div>
-  <hr style="color: grey; width: 100%; height: 4px;">
-      <div class="comment-section">
-        <div class="comment">
-          <div class="user-avatar"></div>
-          <div class="comment-content">
-            <div class="comment-header">
-              <span class="user-name">John Doe</span>
-              <span class="comment-timestamp">2 hours ago</span>
-            </div>
-            <p class="comment-text">This is a sample comment. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <div class="comment-actions">
 
-            </div>
-          </div>
-        </div>
-       
-      </div>
-    
-        <form [formGroup]="commentForm" (ngSubmit)="addComment(post)">
-          <div class="comment-box">
-            <input type="text"  name="content" id="content"  formControlName="content" placeholder="Add a comment" />
-            <button type="submit">Add Comment</button>
-          </div>
-          </form>
-
-
+<form [formGroup]="commentForm" (ngSubmit)="addComment(post)">
+<div class="comment-box">
+  <input type="text"  name="content" id="content"  formControlName="content" placeholder="Add a comment" />
+  <button type="submit">Add Comment</button>
+</div>
+</form>
 
 </div>
-
+  </div>
+</div>
 
 
 
