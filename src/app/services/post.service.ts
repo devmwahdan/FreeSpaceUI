@@ -14,7 +14,7 @@ export class PostService extends GenericHttpService<PostModel>  {
     super("/post", client)
   }
   getPost():  Observable<any> {
-    //debugger
+  debugger
     return this.httpClient.get('/post/get-posts');
   }
 
@@ -32,7 +32,7 @@ return this.httpClient.post('/post/make-like',PostModel);
   }
 
       getPostByUser(userId:any):  Observable<any> {
-        //debugger
+        debugger
         return this.httpClient.get(`/post/get-posts/${userId}`);
       }
 

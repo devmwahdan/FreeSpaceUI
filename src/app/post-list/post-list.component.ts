@@ -16,6 +16,7 @@ import {FormBuilder, FormGroup } from '@angular/forms';
 export class PostListComponent implements OnInit{
   commentForm: FormGroup;
   user:UserModel;
+  post:PostModel;
   postModelList :PostModel[]=[];
   isCurrentPostLiked = false;
   @Input() userId: any;
@@ -27,13 +28,15 @@ export class PostListComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    
     this.sharedService.posts$.subscribe((isPosCreated) => {
     if(isPosCreated) {
       this.getPosts();
     }
     });
 
-
+    let postStorge=localStorage.getItem('post');
+    this.user  = postStorge ? JSON.parse(postStorge) : null;
     let userStorge=localStorage.getItem('user');
     this.user  = userStorge ? JSON.parse(userStorge) : null;
 
@@ -49,15 +52,19 @@ export class PostListComponent implements OnInit{
 
    getPosts(){
   this.postService.getPost().subscribe(async result => {
+    debugger
     this.postModelList=result;
+    console.log(result);
 
   });
 
   }
   getUserPosts(userId:any){
-    debugger
+    
   this.postService.getPostByUser(userId).subscribe(async result => {
-    this.postModelList=result;
+    debugger
+  this.postModelList=result;
+  console.log(result);
 
   });
 

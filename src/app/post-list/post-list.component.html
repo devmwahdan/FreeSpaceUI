@@ -1,10 +1,10 @@
 <div class="post-container" *ngFor="let post of postModelList">
   <div class="post-row">
     <div class="user-profile">
-      <img [src]="user.profilePicture"  alt="">
+      <img *ngIf="post && post.profilePicture" [src]="post.profilePicture"  alt="">
       <div>
         <p>{{post.fullName}}</p>
-        <span>{{post.created |date: 'yyyy-MM-dd HH:mm'}}</span>
+        <span>{{post.createdDate |date:'yyyy-MM-dd HH:mm'}}</span>
       </div>
     </div>
     <a href="#"><i class="bi bi-three-dots-vertical"></i></a>
@@ -36,10 +36,7 @@
         <span class="comment-timestamp">2 hours ago</span>
       </div>
       <p class="comment-text">This is a sample comment. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      <div class="activity-icons">
-        <div *ngIf="post.isLiked"><img src="assets/image/icons/like-blue.png" alt=""(click)="makeDislike(post)">{{post.likesCount}}</div>
-        <div *ngIf="!post.isLiked"><img src="assets/image/icons/like.png" alt="" (click)="makeLike(post)">{{post.likesCount}}</div>
-      </div>
+    
     </div>
   </div>
   <br>

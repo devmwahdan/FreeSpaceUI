@@ -14,7 +14,7 @@ import { SharedService } from '../services/shared.service';
 export class MangePostComponent  implements OnInit{
   user:UserModel;
   postForm:FormGroup;
-
+  selectedFile: File | null = null;
   constructor( private router: Router,
      private fb: FormBuilder,
       private postService: PostService,
@@ -36,7 +36,22 @@ ngOnInit(): void {
   });
 
  }
+ onFileSelected(event: any): void {
+  const files = event.target.files;
+  if (files && files.length > 0) {
+    this.selectedFile = files[0];
+  }
+}
+onImageClick(event: Event): void {
+  event.stopPropagation();
+  event.preventDefault();
 
+  // Trigger a click event on the hidden file input
+  const fileInput = document.getElementById('fileUpload');
+  if (fileInput) {
+    fileInput.click();
+  }
+}
 Post(){
   let formValue=this.postForm.value;
   let postModel=new PostModel();

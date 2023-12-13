@@ -1,9 +1,10 @@
 export class PostModel {
     postId!:any;
-    profilePicture!:File;
     fullName!:string;
     content!:string;
-    created !:Date;
+    createdDate !:Date;
     isLiked:boolean;
     likesCount: number;
+    profilePicture!:string;
+
 }
