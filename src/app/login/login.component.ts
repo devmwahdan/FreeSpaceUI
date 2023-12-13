@@ -7,7 +7,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ApiHelperService} from "../services/api-helper.service";
 import {PostService} from "../services/post.service";
 import {PostModel} from "../models/post-model";
-import { MatSnackBar } from '@angular/material/snack-bar';
 
  @Component({
   selector: 'app-login',
@@ -21,7 +20,7 @@ loginForm:FormGroup;
 loginModel:LoginModel=new LoginModel();
 RegisterModel:RegisterModel=new RegisterModel();
 
-  constructor( private router: Router, private authService: AuthService, private fb: FormBuilder, private postService: PostService,private _snackBar: MatSnackBar){
+  constructor( private router: Router, private authService: AuthService, private fb: FormBuilder, private postService: PostService){
      // Initialize the form in the constructor
      this.registerationForm = this.fb.group({
       firstname: '',
@@ -60,20 +59,13 @@ RegisterModel:RegisterModel=new RegisterModel();
       }
     },
     (error) => {
-      debugger
-      // Handle login error if needed
-      console.log('Login failed:', error);
-      this.showErrorMessage('Login failed. Please try again.');
+      this.showPopup('Error', 'Login failed. Please try again.');
     }
   );
+ }
 
-   }
-   private showErrorMessage(message: string): void {
-    this._snackBar.open(message, 'Close', {
-      duration: 5000, // Duration in milliseconds
-      panelClass: ['error-snackbar'], // Add a custom CSS class for styling
-    });
-  }
+
+  
    Register(){
     var formValue = this.registerationForm.value;
     this.RegisterModel.FirstName=formValue.firstname;

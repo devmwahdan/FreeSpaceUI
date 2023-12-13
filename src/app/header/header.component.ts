@@ -37,6 +37,7 @@ export class HeaderComponent implements OnInit {
    Logout(){
     debugger
     localStorage.removeItem('user');
+    this.router.navigate(['/login']);
    }
    settingsMenuToggle(){
     this.hideActionMenu =!this.hideActionMenu;

@@ -28,6 +28,7 @@ return this.httpClient.post('/post/make-like',PostModel);
 
 
   makeComment(comment:any):Observable<any>{
+    debugger
     return this.httpClient.post('/post/make-comment',comment);
   }
 

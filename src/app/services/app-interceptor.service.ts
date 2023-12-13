@@ -43,11 +43,13 @@ export class AppHttpInterceptor implements HttpInterceptor {
 
     return next.handle(authReq).pipe(
       catchError((err: any, caught: Observable<any>) => {
+        debugger
         if (err instanceof HttpErrorResponse) {
-          if (err.status === 401 || err.status === 403) {
-             this.router.navigate(['/login']);
-            return throwError({});
-          }
+          //  if (err.status === 401 || err.status === 403) {
+          //    this.router.navigate(['/login']);
+          //   return throwError({});
+          // }
+          this.router.navigate(['/login']);
           return throwError(err.error);
         }
         // TODO: Check what we need to return

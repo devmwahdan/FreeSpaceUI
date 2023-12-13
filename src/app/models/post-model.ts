@@ -1,3 +1,5 @@
+import { CommentModel } from "./comment-model";
+
 export class PostModel {
     postId!:any;
     fullName!:string;
@@ -6,5 +8,5 @@ export class PostModel {
     isLiked:boolean;
     likesCount: number;
     profilePicture!:string;
-
+    comments:CommentModel[];
 }

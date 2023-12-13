@@ -4,7 +4,7 @@
       <img *ngIf="post && post.profilePicture" [src]="post.profilePicture"  alt="">
       <div>
         <p>{{post.fullName}}</p>
-        <span>{{post.createdDate |date:'yyyy-MM-dd HH:mm'}}</span>
+        <span>{{post.createdDate |date:'dd/MM/yyyy HH:mm'}}</span>
       </div>
     </div>
     <a href="#"><i class="bi bi-three-dots-vertical"></i></a>
@@ -15,7 +15,7 @@
     <div class="activity-icons">
       <div *ngIf="post.isLiked"><img src="assets/image/icons/like-blue.png" alt=""(click)="makeDislike(post)">{{post.likesCount}}</div>
       <div *ngIf="!post.isLiked"><img src="assets/image/icons/like.png" alt="" (click)="makeLike(post)">{{post.likesCount}}</div>
-      <div><img src="assets/image/icons/comments.png" alt="">15</div>
+      <div><img src="assets/image/icons/comments.png" alt=""></div>
       <br>
       <br>
 
@@ -27,19 +27,20 @@
 </form>
 </div>
   </div>
-<div class="comment-section">
+<div *ngFor="let comment of post.comments" class="comment-section">
   <div class="comment">
-    <div class="user-avatar"></div>
+    <div class="user-profile">
+      <img *ngIf="comment && comment.profilePicture" [src]="comment.profilePicture"  alt="">
+    </div>
     <div class="comment-content">
       <div class="comment-header">
-        <span class="user-name">John Doe</span>
-        <span class="comment-timestamp">2 hours ago</span>
+        <span class="user-name">{{comment.fullName}}</span>
+        <span class="comment-timestamp">{{comment.createdDate |date:'dd/MM/yyyy HH:mm' }}</span>
       </div>
-      <p class="comment-text">This is a sample comment. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    
+      <p class="comment-text">{{comment.content}}</p>
     </div>
   </div>
-  <br>
+  
 </div>
 </div>
 

@@ -5,8 +5,5 @@ export class RegisterModel{
     Password!:string;
     DateOfBirth!:Date;
     Gender!:number;
-    
-
-
 
 }
